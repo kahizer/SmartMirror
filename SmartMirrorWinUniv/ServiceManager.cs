@@ -62,6 +62,12 @@ namespace SmartMirrorWinUniv
             return this.quoteServices == null ? null : this.quoteServices.GetDailyQuote();
         }
 
+        public object GetCalenderData()
+        {
+            // need to access to calender
+            return null;
+        }
+
         #endregion
 
         #region O
