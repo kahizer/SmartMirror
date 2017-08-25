@@ -26380,20 +26380,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\j.villanueva\\.nuget\\packages\\": {}
+    "C:\\Users\\kahizer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\users\\j.villanueva\\Source\\Repos\\SmartMirrorWinUniv\\SmartMirrorWinUniv\\SmartMirrorWinUniv.csproj",
+      "projectUniqueName": "C:\\Users\\kahizer\\source\\repos\\SmartMirror\\SmartMirrorWinUniv\\SmartMirrorWinUniv.csproj",
       "projectName": "SmartMirrorWinUniv",
-      "projectPath": "c:\\users\\j.villanueva\\Source\\Repos\\SmartMirrorWinUniv\\SmartMirrorWinUniv\\SmartMirrorWinUniv.csproj",
-      "packagesPath": "C:\\Users\\j.villanueva\\.nuget\\packages\\",
-      "outputPath": "c:\\users\\j.villanueva\\Source\\Repos\\SmartMirrorWinUniv\\SmartMirrorWinUniv\\obj\\",
+      "projectPath": "C:\\Users\\kahizer\\source\\repos\\SmartMirror\\SmartMirrorWinUniv\\SmartMirrorWinUniv.csproj",
+      "packagesPath": "C:\\Users\\kahizer\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kahizer\\source\\repos\\SmartMirror\\SmartMirrorWinUniv\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\j.villanueva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kahizer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -26401,8 +26401,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://golighthouse.pkgs.visualstudio.com/_packaging/Lighthouse/nuget/v2": {},
-        "https://www.nuget.org/api/v2/": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://golighthouse.pkgs.visualstudio.com/_packaging/Lighthouse/nuget/v2": {}
       },
       "frameworks": {
         "uap10.0.10586": {

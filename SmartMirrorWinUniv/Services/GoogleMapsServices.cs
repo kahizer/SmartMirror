@@ -2,6 +2,7 @@
 {
     using System.IO;
     using System.Net;
+    using SmartMirrorWinUniv.Concreates;
 
     public class GoogleMapsServices
     {
@@ -25,7 +26,7 @@
         {
             this.origenFormatted = this.origen.Replace(" ", "+");
             this.destinationFormatted = this.destination.Replace(" ", "+");
-            this.GetTripInformation();
+            //this.GetTripInformation();
         }
 
         public GoogleMapsServices(string origen, string destination)
@@ -45,11 +46,18 @@
 
         #region Public Methods
 
+        public TrafficStatus GetTrafficInformation()
+        {
+            var result = this.GetTripInformation();
+            var trafficInfo = new TrafficStatus(result);
+            return trafficInfo;
+        } 
+
         #endregion
 
         #region Private Methods
 
-        public void GetTripInformation()
+        private string GetTripInformation()
         {
             string url =
                 $"https://maps.googleapis.com/maps/api/directions/json?origin={this.origenFormatted}&destination={this.destinationFormatted}&key={this.ApiKey}";
@@ -67,6 +75,8 @@
             string responseFromServer = reader.ReadToEnd();
 
             response.Dispose();
+
+            return responseFromServer;
         }
 
         #endregion

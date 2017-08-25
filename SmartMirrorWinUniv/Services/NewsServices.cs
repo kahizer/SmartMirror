@@ -42,7 +42,7 @@ namespace SmartMirrorWinUniv.Services
         #region Private Method
 
         private string GetLatestNews()
-        {
+         {
             var request = WebRequest.Create(uri + apiKey);
             var response = request.GetResponseAsync().Result;
             var dataStream = response.GetResponseStream();

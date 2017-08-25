@@ -29,10 +29,9 @@ namespace SmartMirrorWinUniv.Concreates
 
         #endregion
 
-        #region Public Fields
+        #region Public Properties
 
         public List<NewsItem> LatestNews { get; set; }
-
 
         #endregion
 
@@ -59,25 +58,6 @@ namespace SmartMirrorWinUniv.Concreates
                 this.LatestNews.Add(newsItem);
             }
         }
-
-        //private void GetLatestNews()
-        //{
-        //    var request = WebRequest.Create(uri + apiKey);
-        //    var response = request.GetResponse();
-        //    var dataStream = response.GetResponseStream();
-        //    var reader = new StreamReader(dataStream);
-
-        //    var result = reader.ReadToEnd();
-        //    this.DeSerializeJson(result);
-        //    reader.Close();
-        //    response.Close();
-
-        //    // after calling service it should return the object model
-        //    // all services should return object model
-        //    // service should be call from main or make a service manager that will manage all calls
-        //    // need to implement timers different services should be called at different times some daiy minutes in interval time
-        //    // refresh every certain time the code is called
-        //}
 
         #endregion 
     }

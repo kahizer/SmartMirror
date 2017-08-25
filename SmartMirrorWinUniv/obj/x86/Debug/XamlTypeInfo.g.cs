@@ -132,15 +132,27 @@ namespace SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[3];
+            _typeNameTable = new string[9];
             _typeNameTable[0] = "SmartMirrorWinUniv.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[3] = "SmartMirrorWinUniv.Concreates.CurrentTime";
+            _typeNameTable[4] = "Object";
+            _typeNameTable[5] = "SmartMirrorWinUniv.Concreates.NewsModel";
+            _typeNameTable[6] = "SmartMirrorWinUniv.Concreates.QuoteModel";
+            _typeNameTable[7] = "SmartMirrorWinUniv.Concreates.TrafficStatus";
+            _typeNameTable[8] = "SmartMirrorWinUniv.Concreates.WeatherStatus";
 
-            _typeTable = new global::System.Type[3];
+            _typeTable = new global::System.Type[9];
             _typeTable[0] = typeof(global::SmartMirrorWinUniv.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[3] = typeof(global::SmartMirrorWinUniv.Concreates.CurrentTime);
+            _typeTable[4] = typeof(global::System.Object);
+            _typeTable[5] = typeof(global::SmartMirrorWinUniv.Concreates.NewsModel);
+            _typeTable[6] = typeof(global::SmartMirrorWinUniv.Concreates.QuoteModel);
+            _typeTable[7] = typeof(global::SmartMirrorWinUniv.Concreates.TrafficStatus);
+            _typeTable[8] = typeof(global::SmartMirrorWinUniv.Concreates.WeatherStatus);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -190,6 +202,11 @@ namespace SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo
             case 0:   //  SmartMirrorWinUniv.MainPage
                 userType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_0_MainPage;
+                userType.AddMemberName("Time");
+                userType.AddMemberName("News");
+                userType.AddMemberName("Quote");
+                userType.AddMemberName("Traffic");
+                userType.AddMemberName("Weather");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -201,16 +218,139 @@ namespace SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo
             case 2:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
+
+            case 3:   //  SmartMirrorWinUniv.Concreates.CurrentTime
+                userType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  Object
+                xamlType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 5:   //  SmartMirrorWinUniv.Concreates.NewsModel
+                userType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 6:   //  SmartMirrorWinUniv.Concreates.QuoteModel
+                userType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  SmartMirrorWinUniv.Concreates.TrafficStatus
+                userType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 8:   //  SmartMirrorWinUniv.Concreates.WeatherStatus
+                userType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
             }
             return xamlType;
         }
 
 
+        private object get_0_MainPage_Time(object instance)
+        {
+            var that = (global::SmartMirrorWinUniv.MainPage)instance;
+            return that.Time;
+        }
+        private void set_0_MainPage_Time(object instance, object Value)
+        {
+            var that = (global::SmartMirrorWinUniv.MainPage)instance;
+            that.Time = (global::SmartMirrorWinUniv.Concreates.CurrentTime)Value;
+        }
+        private object get_1_MainPage_News(object instance)
+        {
+            var that = (global::SmartMirrorWinUniv.MainPage)instance;
+            return that.News;
+        }
+        private void set_1_MainPage_News(object instance, object Value)
+        {
+            var that = (global::SmartMirrorWinUniv.MainPage)instance;
+            that.News = (global::SmartMirrorWinUniv.Concreates.NewsModel)Value;
+        }
+        private object get_2_MainPage_Quote(object instance)
+        {
+            var that = (global::SmartMirrorWinUniv.MainPage)instance;
+            return that.Quote;
+        }
+        private void set_2_MainPage_Quote(object instance, object Value)
+        {
+            var that = (global::SmartMirrorWinUniv.MainPage)instance;
+            that.Quote = (global::SmartMirrorWinUniv.Concreates.QuoteModel)Value;
+        }
+        private object get_3_MainPage_Traffic(object instance)
+        {
+            var that = (global::SmartMirrorWinUniv.MainPage)instance;
+            return that.Traffic;
+        }
+        private void set_3_MainPage_Traffic(object instance, object Value)
+        {
+            var that = (global::SmartMirrorWinUniv.MainPage)instance;
+            that.Traffic = (global::SmartMirrorWinUniv.Concreates.TrafficStatus)Value;
+        }
+        private object get_4_MainPage_Weather(object instance)
+        {
+            var that = (global::SmartMirrorWinUniv.MainPage)instance;
+            return that.Weather;
+        }
+        private void set_4_MainPage_Weather(object instance, object Value)
+        {
+            var that = (global::SmartMirrorWinUniv.MainPage)instance;
+            that.Weather = (global::SmartMirrorWinUniv.Concreates.WeatherStatus)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "SmartMirrorWinUniv.MainPage.Time":
+                userType = (global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SmartMirrorWinUniv.MainPage");
+                xamlMember = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlMember(this, "Time", "SmartMirrorWinUniv.Concreates.CurrentTime");
+                xamlMember.Getter = get_0_MainPage_Time;
+                xamlMember.Setter = set_0_MainPage_Time;
+                break;
+            case "SmartMirrorWinUniv.MainPage.News":
+                userType = (global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SmartMirrorWinUniv.MainPage");
+                xamlMember = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlMember(this, "News", "SmartMirrorWinUniv.Concreates.NewsModel");
+                xamlMember.Getter = get_1_MainPage_News;
+                xamlMember.Setter = set_1_MainPage_News;
+                break;
+            case "SmartMirrorWinUniv.MainPage.Quote":
+                userType = (global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SmartMirrorWinUniv.MainPage");
+                xamlMember = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlMember(this, "Quote", "SmartMirrorWinUniv.Concreates.QuoteModel");
+                xamlMember.Getter = get_2_MainPage_Quote;
+                xamlMember.Setter = set_2_MainPage_Quote;
+                break;
+            case "SmartMirrorWinUniv.MainPage.Traffic":
+                userType = (global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SmartMirrorWinUniv.MainPage");
+                xamlMember = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlMember(this, "Traffic", "SmartMirrorWinUniv.Concreates.TrafficStatus");
+                xamlMember.Getter = get_3_MainPage_Traffic;
+                xamlMember.Setter = set_3_MainPage_Traffic;
+                break;
+            case "SmartMirrorWinUniv.MainPage.Weather":
+                userType = (global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType)GetXamlTypeByName("SmartMirrorWinUniv.MainPage");
+                xamlMember = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlMember(this, "Weather", "SmartMirrorWinUniv.Concreates.WeatherStatus");
+                xamlMember.Getter = get_4_MainPage_Weather;
+                xamlMember.Setter = set_4_MainPage_Weather;
+                break;
+            }
             return xamlMember;
         }
     }
