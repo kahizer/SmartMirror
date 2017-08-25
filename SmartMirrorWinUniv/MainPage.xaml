@@ -5,7 +5,7 @@
     xmlns:local="using:SmartMirrorWinUniv"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Height="1200" Width="1000">
+    mc:Ignorable="d" Height="1000" Width="1000">
     <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">-->
         <Grid Background="Black">
         <Grid.Resources>
@@ -20,7 +20,6 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -40,6 +39,12 @@
             <TextBlock  Name="TempTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="50"/>
             <!--<TextBlock  Name="CurrentTimeTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="60"/>-->
         </StackPanel>
+
+        <StackPanel  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center">
+            <TextBlock  Name="QuoteTextBlock" Style="{StaticResource TextBlockStyle}" Text="{Binding Quote}" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+            <TextBlock  Name="AuthorTextBlock" Style="{StaticResource TextBlockStyle}" Text="{Binding Author}" HorizontalAlignment="Center"/>
+        </StackPanel>
+        
 
     </Grid>
 </Page>

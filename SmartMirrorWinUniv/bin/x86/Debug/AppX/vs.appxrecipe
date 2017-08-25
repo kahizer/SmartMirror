@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\kahizer\source\repos\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-08-25T06:12:26.081</Modified>
+      <Modified>2017-08-25T07:10:29.377</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\kahizer\source\repos\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\SmartMirrorWinUniv.exe">
       <PackagePath>entrypoint\SmartMirrorWinUniv.exe</PackagePath>
-      <Modified>2017-08-25T06:12:25.552</Modified>
+      <Modified>2017-08-25T07:10:28.848</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kahizer\.nuget\packages\DarkSkyCore\3.0.0\lib\netstandard1.4\DarkSkyCore.dll">
       <PackagePath>DarkSkyCore.dll</PackagePath>
@@ -567,7 +567,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kahizer\source\repos\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\SmartMirrorWinUniv.xr.xml">
       <PackagePath>SmartMirrorWinUniv.xr.xml</PackagePath>
-      <Modified>2017-08-25T06:12:25.402</Modified>
+      <Modified>2017-08-25T07:10:28.697</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -576,11 +576,11 @@
     <AppxPackagedFile Include="C:\Users\kahizer\source\repos\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-08-25T06:12:25.921</Modified>
+      <Modified>2017-08-25T07:10:29.218</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kahizer\source\repos\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\Core\SmartMirrorWinUniv.exe">
       <PackagePath>SmartMirrorWinUniv.exe</PackagePath>
-      <Modified>2017-08-25T06:12:26.078</Modified>
+      <Modified>2017-08-25T07:10:29.374</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -33,8 +33,8 @@ namespace SmartMirrorWinUniv.Concreates
         private void DeSerializeJson(string jsonData)
         {
             dynamic jsonObject = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonData);
-            this.Quote = jsonObject.quoteText;
-            this.Author = jsonObject.quoteAuthor;
+            this.Quote = $"\"{jsonObject.quoteText}\"";
+            this.Author = $"- {jsonObject.quoteAuthor}";
         }
 
         #endregion
