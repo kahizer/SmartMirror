@@ -23,7 +23,7 @@
             this.latitude = lat;
             this.longitude = log;
 
-            this.GetWeatherStatus();
+            //this.GetWeatherStatus();
         }
 
         #endregion

@@ -1,1 +1,1 @@
-c:\users\j.villanueva\Source\Repos\SmartMirrorWinUniv\SmartMirrorWinUniv\SmartMirrorWinUniv.csproj;x86
+C:\Users\kahizer\source\repos\SmartMirror\SmartMirrorWinUniv\SmartMirrorWinUniv.csproj;x86

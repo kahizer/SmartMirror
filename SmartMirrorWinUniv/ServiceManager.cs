@@ -40,11 +40,9 @@ namespace SmartMirrorWinUniv
 
         #region Public Properties
 
-        public void GetTrafficInformation()
+        public TrafficStatus GetTrafficInformation()
         {
-            if (this.googleMapsServices == null) return;
-
-            this.googleMapsServices.GetTripInformation();
+            return this.googleMapsServices == null ? null : this.googleMapsServices.GetTrafficInformation();
         }
 
         public NewsModel GetNews()
@@ -57,14 +55,14 @@ namespace SmartMirrorWinUniv
             return this.weatherServices == null ? null : this.weatherServices.GetWeatherStatus();
         }
 
-        public object GetQuoteOfTheDay()
+        public QuoteModel GetQuoteOfTheDay()
         {
             return this.quoteServices == null ? null : this.quoteServices.GetDailyQuote();
         }
 
         #endregion
 
-        #region O
+        #region
         #endregion
     }
 }

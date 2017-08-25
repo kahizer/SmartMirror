@@ -95,7 +95,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Concreates\CurrentTime.cs" />
     <Compile Include="Concreates\NewsModel.cs" />
+    <Compile Include="Concreates\QuoteModel.cs" />
+    <Compile Include="Concreates\TrafficStatus.cs" />
     <Compile Include="Concreates\WeatherStatus.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

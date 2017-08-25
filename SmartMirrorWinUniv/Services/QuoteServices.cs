@@ -3,6 +3,7 @@
     using System.Text;
     using System.IO;
     using System.Net;
+    using SmartMirrorWinUniv.Concreates;
 
     public class QuoteServices
     {
@@ -18,7 +19,7 @@
 
         public QuoteServices()
         {
-            this.GetQuote();
+            //this.GetQuote();
         }
 
         #endregion
@@ -29,16 +30,18 @@
 
         #region Public Methods
 
-        public string GetDailyQuote()
+        public QuoteModel GetDailyQuote()
         {
-            return string.Empty;
+            var result = this.GetQuote();
+            var quote = new QuoteModel(result);
+            return quote;
         }
 
         #endregion
 
         #region Private Methods
 
-        private void GetQuote()
+        private string GetQuote()
         {
             // create a request
             var request = (HttpWebRequest)WebRequest.Create(uri);
@@ -58,6 +61,8 @@
             // json-formatted string from maps api
             string responseFromServer = reader.ReadToEnd();
             response.Dispose();
+
+            return responseFromServer;
         }
 
         #endregion

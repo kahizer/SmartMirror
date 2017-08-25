@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Navigation;
 namespace SmartMirrorWinUniv
 {
     using SmartMirrorWinUniv.Services;
+    using SmartMirrorWinUniv.Concreates;
 
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -30,13 +31,34 @@ namespace SmartMirrorWinUniv
 
         #endregion
 
+        #region
+
         public MainPage()
         {
             this.InitializeComponent();
             this.serviceManager = new ServiceManager();
 
-            this.serviceManager.GetWeather();
+            this.Time = new CurrentTime(DateTime.Now);
+            this.DayInfoTextBlock.Text = this.Time.DayInfo;
+            this.CurrentTimeTextBlock.Text = this.Time.ShortTime;
 
+            //this.Traffic = this.serviceManager.GetTrafficInformation();
+            //this.News = this.serviceManager.GetNews();
+            this.Weather = this.serviceManager.GetWeather();
+            this.TempTextBlock.Text = this.Weather.Temperature.ToString()+ "°";
+            //this.Quote = this.serviceManager.GetQuoteOfTheDay();
         }
+
+        #endregion
+
+        #region Public Properties
+
+        public CurrentTime Time { get; set; }
+        public NewsModel News { get; set; }
+        public QuoteModel Quote { get; set; }
+        public TrafficStatus Traffic { get; set; }
+        public WeatherStatus Weather { get; set; }
+
+        #endregion
     }
 }
