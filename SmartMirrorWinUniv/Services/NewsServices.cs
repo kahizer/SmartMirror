@@ -8,6 +8,7 @@ namespace SmartMirrorWinUniv.Services
 {
     using System.IO;
     using System.Net;
+    using System.Threading;
     using SmartMirrorWinUniv.Concreates;
 
     public class NewsServices
@@ -18,19 +19,36 @@ namespace SmartMirrorWinUniv.Services
 
         private const string uri = "https://newsapi.org/v1/articles?source=google-news&sortBy=top&apiKey=";
 
+        private Timer timer;
+
+        private int elapseTime = 600000; //every 10 minutes
         #endregion
 
         #region Constructor
 
         public NewsServices()
         {
+            this.timer = new Timer(this.UpdateNews, null, 0, Timeout.Infinite);
         }
 
         #endregion
 
+        #region Public Events
+
+        public event EventHandler<NewsModel> LatestNewsEvent;
+
+        #endregion
+
+
         #region Public Methods
 
-        public NewsModel GetNews()
+        private void UpdateNews(object state)
+        {
+            var newsModel = this.GetNews();
+            this.LatestNewsEvent?.Invoke(this, newsModel);
+            this.timer.Change(this.elapseTime, Timeout.Infinite);
+        }
+        private NewsModel GetNews()
         {
             var newsRaw = this.GetLatestNews();
             var news = new NewsModel(newsRaw);

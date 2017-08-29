@@ -11,7 +11,7 @@
         <Grid.Resources>
             <Style TargetType="TextBlock" x:Key="TextBlockStyle">
                 <Setter Property="Foreground" Value="White" />
-                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontSize" Value="30" />
             </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
@@ -26,19 +26,70 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
-            <TextBlock x:ConnectionId='4'  Name="DayInfoTextBlock" Style="{StaticResource TextBlockStyle}"/>
-            <TextBlock x:ConnectionId='5'  Name="CurrentTimeTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="60"/>
+            <TextBlock x:ConnectionId='29'  Name="DayInfoTextBlock" Style="{StaticResource TextBlockStyle}"/>
+            <TextBlock x:ConnectionId='30'  Name="CurrentTimeTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="60"/>
         </StackPanel>
 
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
-            <TextBlock  Style="{StaticResource TextBlockStyle}" FontSize="25" Text="Good Morning J"/>
+            <TextBlock  Style="{StaticResource TextBlockStyle}" Margin="20,10,0,0" FontSize="25" Text="Hello J"/>
             <!--<TextBlock  Name="CurrentTimeTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="60"/>-->
         </StackPanel>
 
-        <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Vertical">
-            <TextBlock x:ConnectionId='3'  Name="TempTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="50"/>
-            <!--<TextBlock  Name="CurrentTimeTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="60"/>-->
-        </StackPanel>
+        
+            <Grid Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
+                <StackPanel  Orientation="Vertical">
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:ConnectionId='27'  Name="TempTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="50"/>
+                    <TextBlock x:ConnectionId='28' Name="SumaryTextBlock" Style="{StaticResource TextBlockStyle}" Margin="20,10,0,0" Width="200"/>
+                </StackPanel>
+                    
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:ConnectionId='23' Name="DayTextBlock01" Style="{StaticResource TextBlockStyle}" Width="85"/>
+                        <Image x:ConnectionId='24' Margin="10,0,0,0" Name="IconImage01"/>
+                    <TextBlock x:ConnectionId='25' Margin="10,0,0,0" Name="HighTempDay01" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    <TextBlock x:ConnectionId='26' Margin="10,0,0,0" Name="LowTempDay01" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                    <TextBlock x:ConnectionId='19' Name="DayTextBlock02" Style="{StaticResource TextBlockStyle}" Width="85"/>
+                        <Image x:ConnectionId='20' Margin="10,0,0,0" Name="IconImage02"/>
+                    <TextBlock x:ConnectionId='21' Margin="10,0,0,0" Name="HighTempDay02" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    <TextBlock x:ConnectionId='22' Margin="10,0,0,0" Name="LowTempDay02" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:ConnectionId='15' Name="DayTextBlock03" Style="{StaticResource TextBlockStyle}" Width="85"/>
+                    <Image x:ConnectionId='16' Margin="10,0,0,0" Name="IconImage03"/>
+                    <TextBlock x:ConnectionId='17' Margin="10,0,0,0" Name="HighTempDay03" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    <TextBlock x:ConnectionId='18' Margin="10,0,0,0" Name="LowTempDay03" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:ConnectionId='11' Name="DayTextBlock04" Style="{StaticResource TextBlockStyle}" Width="85"/>
+                    <Image x:ConnectionId='12' Margin="10,0,0,0" Name="IconImage04"/>
+                    <TextBlock x:ConnectionId='13' Margin="10,0,0,0" Name="HighTempDay04" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    <TextBlock x:ConnectionId='14' Margin="10,0,0,0" Name="LowTempDay04" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:ConnectionId='7' Name="DayTextBlock05" Style="{StaticResource TextBlockStyle}" Width="85"/>
+                    <Image x:ConnectionId='8' Margin="10,0,0,0" Name="IconImage05"/>
+                    <TextBlock x:ConnectionId='9' Margin="10,0,0,0" Name="HighTempDay05" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    <TextBlock x:ConnectionId='10' Margin="10,0,0,0" Name="LowTempDay05" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:ConnectionId='3' Name="DayTextBlock06" Style="{StaticResource TextBlockStyle}" Width="85"/>
+                    <Image x:ConnectionId='4' Margin="10,0,0,0" Name="IconImage06"/>
+                    <TextBlock x:ConnectionId='5' Margin="10,0,0,0" Name="HighTempDay06" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    <TextBlock x:ConnectionId='6' Margin="10,0,0,0" Name="LowTempDay06" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                </StackPanel>
+
+            </StackPanel>
+            </Grid>
+            
 
         <StackPanel  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center">
             <TextBlock x:ConnectionId='1'  Name="QuoteTextBlock" Style="{StaticResource TextBlockStyle}" Text="{Binding Quote}" TextWrapping="Wrap" HorizontalAlignment="Center"/>

@@ -11,7 +11,7 @@
         <Grid.Resources>
             <Style TargetType="TextBlock" x:Key="TextBlockStyle">
                 <Setter Property="Foreground" Value="White" />
-                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontSize" Value="30" />
             </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
@@ -31,14 +31,65 @@
         </StackPanel>
 
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
-            <TextBlock  Style="{StaticResource TextBlockStyle}" FontSize="25" Text="Good Morning J"/>
+            <TextBlock  Style="{StaticResource TextBlockStyle}" Margin="20,10,0,0" FontSize="25" Text="Hello J"/>
             <!--<TextBlock  Name="CurrentTimeTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="60"/>-->
         </StackPanel>
 
-        <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Vertical">
-            <TextBlock  Name="TempTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="50"/>
-            <!--<TextBlock  Name="CurrentTimeTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="60"/>-->
-        </StackPanel>
+        
+            <Grid Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
+                <StackPanel  Orientation="Vertical">
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock  Name="TempTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="50"/>
+                    <TextBlock Name="SumaryTextBlock" Style="{StaticResource TextBlockStyle}" Margin="20,10,0,0" Width="200"/>
+                </StackPanel>
+                    
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="DayTextBlock01" Style="{StaticResource TextBlockStyle}" Width="85"/>
+                        <Image Margin="10,0,0,0" Name="IconImage01"/>
+                    <TextBlock Margin="10,0,0,0" Name="HighTempDay01" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    <TextBlock Margin="10,0,0,0" Name="LowTempDay01" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="DayTextBlock02" Style="{StaticResource TextBlockStyle}" Width="85"/>
+                        <Image Margin="10,0,0,0" Name="IconImage02"/>
+                    <TextBlock Margin="10,0,0,0" Name="HighTempDay02" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    <TextBlock Margin="10,0,0,0" Name="LowTempDay02" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="DayTextBlock03" Style="{StaticResource TextBlockStyle}" Width="85"/>
+                    <Image Margin="10,0,0,0" Name="IconImage03"/>
+                    <TextBlock Margin="10,0,0,0" Name="HighTempDay03" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    <TextBlock Margin="10,0,0,0" Name="LowTempDay03" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="DayTextBlock04" Style="{StaticResource TextBlockStyle}" Width="85"/>
+                    <Image Margin="10,0,0,0" Name="IconImage04"/>
+                    <TextBlock Margin="10,0,0,0" Name="HighTempDay04" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    <TextBlock Margin="10,0,0,0" Name="LowTempDay04" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="DayTextBlock05" Style="{StaticResource TextBlockStyle}" Width="85"/>
+                    <Image Margin="10,0,0,0" Name="IconImage05"/>
+                    <TextBlock Margin="10,0,0,0" Name="HighTempDay05" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    <TextBlock Margin="10,0,0,0" Name="LowTempDay05" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="DayTextBlock06" Style="{StaticResource TextBlockStyle}" Width="85"/>
+                    <Image Margin="10,0,0,0" Name="IconImage06"/>
+                    <TextBlock Margin="10,0,0,0" Name="HighTempDay06" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                    <TextBlock Margin="10,0,0,0" Name="LowTempDay06" Style="{StaticResource TextBlockStyle}" Width="60"/>
+                </StackPanel>
+
+            </StackPanel>
+            </Grid>
+            
 
         <StackPanel  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center">
             <TextBlock  Name="QuoteTextBlock" Style="{StaticResource TextBlockStyle}" Text="{Binding Quote}" TextWrapping="Wrap" HorizontalAlignment="Center"/>

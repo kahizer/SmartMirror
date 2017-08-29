@@ -21,6 +21,8 @@ namespace SmartMirrorWinUniv
 
         private GoogleMapsServices googleMapsServices;
 
+        private DateTimeServices dateTimeServices;
+
         private float lat = 37.621998f;
         private float logt = -122.073551f;
 
@@ -31,42 +33,36 @@ namespace SmartMirrorWinUniv
         public ServiceManager()
         {
             this.googleMapsServices = new GoogleMapsServices();
+            this.googleMapsServices.TrafficUpdateEvent += (sender, status) => { this.TrafficUpdateEvent?.Invoke(this, status);};
+
             this.newsServices = new NewsServices();
-            this.weatherServices = new WeatherServices(lat, this.logt);
+            this.newsServices.LatestNewsEvent += (sender, model) => { this.LatestNewsEvent?.Invoke(this, model);};
+
+            this.weatherServices = new WeatherServices(this.lat, this.logt);
+            this.weatherServices.WeatherUpdateEvent += (sender, status) => { this.WeatherUpdateEvent?.Invoke(this, status);}; 
+
             this.quoteServices = new QuoteServices();
+            this.quoteServices.QuoteUpdateEvent += (sender, model) => { this.QuoteUpdateEvent?.Invoke(this, model); };
+            
+            this.dateTimeServices = new DateTimeServices();
+            this.dateTimeServices.TimerUpdateEvent += (sender, time) => { this.TimerUpdateEvent?.Invoke(this, time); };
         }
 
         #endregion
 
-        #region Public Properties
+        #region Public Events
 
-        public TrafficStatus GetTrafficInformation()
-        {
-            return this.googleMapsServices == null ? null : this.googleMapsServices.GetTrafficInformation();
-        }
+        public event EventHandler<CurrentTime> TimerUpdateEvent;
 
-        public NewsModel GetNews()
-        {
-            return this.newsServices == null ? null : this.newsServices.GetNews();
-        }
+        public event EventHandler<QuoteModel> QuoteUpdateEvent;
 
-        public WeatherStatus GetWeather()
-        {
-            return this.weatherServices == null ? null : this.weatherServices.GetWeatherStatus();
-        }
+        public event EventHandler<WeatherStatus> WeatherUpdateEvent;
 
-        public QuoteModel GetQuoteOfTheDay()
-        {
-            return this.quoteServices == null ? null : this.quoteServices.GetDailyQuote();
-        }
+        public event EventHandler<TrafficStatus> TrafficUpdateEvent;
 
-        public object GetCalenderData()
-        {
-            // need to access to calender
-            return null;
-        }
+        public event EventHandler<NewsModel> LatestNewsEvent;
 
-        #endregion
+        #endregion        
 
         #region
         #endregion

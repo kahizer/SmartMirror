@@ -1,7 +1,10 @@
 ﻿namespace SmartMirrorWinUniv.Services
 {
+    using System;
     using System.IO;
     using System.Net;
+    using System.Threading;
+
     using SmartMirrorWinUniv.Concreates;
 
     public class GoogleMapsServices
@@ -18,6 +21,10 @@
 
         private string origenFormatted;
 
+        private Timer timer;
+
+        private int elapseTime = 30000; //every 1 minutes
+
         #endregion
 
         #region Constructor
@@ -26,17 +33,17 @@
         {
             this.origenFormatted = this.origen.Replace(" ", "+");
             this.destinationFormatted = this.destination.Replace(" ", "+");
-            //this.GetTripInformation();
+            this.timer = new Timer(this.UpdateTraffic, null, 0, Timeout.Infinite);
         }
 
-        public GoogleMapsServices(string origen, string destination)
-        {
-            this.origen = origen;
-            this.destination = destination;
-            this.origenFormatted = this.origen.Replace(" ", "+");
-            this.destinationFormatted = this.destination.Replace(" ", "+");
-            this.GetTripInformation();
-        }
+        //public GoogleMapsServices(string origen, string destination)
+        //{
+        //    this.origen = origen;
+        //    this.destination = destination;
+        //    this.origenFormatted = this.origen.Replace(" ", "+");
+        //    this.destinationFormatted = this.destination.Replace(" ", "+");
+        //    this.GetTripInformation();
+        //}
 
         #endregion
 
@@ -44,18 +51,33 @@
 
         #endregion
 
+        #region Public Events
+
+        public event EventHandler<TrafficStatus> TrafficUpdateEvent;
+
+        #endregion
+
         #region Public Methods
 
-        public TrafficStatus GetTrafficInformation()
-        {
-            var result = this.GetTripInformation();
-            var trafficInfo = new TrafficStatus(result);
-            return trafficInfo;
-        } 
+       
 
         #endregion
 
         #region Private Methods
+
+        private void UpdateTraffic(object state)
+        {
+            var traffic = this.GetTrafficInformation();
+            this.TrafficUpdateEvent?.Invoke(this, traffic);
+            this.timer.Change(this.elapseTime, Timeout.Infinite);
+        }
+
+        private TrafficStatus GetTrafficInformation()
+        {
+            var result = this.GetTripInformation();
+            var trafficInfo = new TrafficStatus(result);
+            return trafficInfo;
+        }
 
         private string GetTripInformation()
         {

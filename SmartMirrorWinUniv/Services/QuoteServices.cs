@@ -1,8 +1,10 @@
 ﻿namespace SmartMirrorWinUniv.Services
 {
+    using System;
     using System.Text;
     using System.IO;
     using System.Net;
+    using System.Threading;
     using SmartMirrorWinUniv.Concreates;
 
     public class QuoteServices
@@ -13,13 +15,24 @@
 
         private const string post_data = "method=getQuote&format=json&key=&lang=en";
 
+        private Timer timer;
+
+        private int elapseTime = 600000; //every 10 mins
+
         #endregion
 
         #region Constructor
 
         public QuoteServices()
         {
-            //this.GetQuote();
+            this.timer = new Timer(this.GetLatestQuote, null, 0, Timeout.Infinite);
+        }
+
+        private void GetLatestQuote(object state)
+        {
+            var quote = this.GetDailyQuote();
+            this.QuoteUpdateEvent?.Invoke(this, quote);
+            this.timer.Change(this.elapseTime, Timeout.Infinite);
         }
 
         #endregion
@@ -28,18 +41,26 @@
 
         #endregion
 
+        #region Public Events
+
+        public event EventHandler<QuoteModel> QuoteUpdateEvent;
+
+        #endregion
+
         #region Public Methods
 
-        public QuoteModel GetDailyQuote()
+
+
+        #endregion
+
+        #region Private Methods
+
+        private QuoteModel GetDailyQuote()
         {
             var result = this.GetQuote();
             var quote = new QuoteModel(result);
             return quote;
         }
-
-        #endregion
-
-        #region Private Methods
 
         private string GetQuote()
         {
