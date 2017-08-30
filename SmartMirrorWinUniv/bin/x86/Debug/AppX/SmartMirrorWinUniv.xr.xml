@@ -64,9 +64,6 @@
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
-    <RootType FullName="Windows.UI.Xaml.Controls.Image">
-      <RootProperty Name="Width" />
-    </RootType>
     <RootType FullName="SmartMirrorWinUniv.MainPage" />
   </Roots.RootTypes>
 </Roots>

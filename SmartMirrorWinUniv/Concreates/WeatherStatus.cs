@@ -16,7 +16,7 @@
             this.Summary = rawResponse.Response.Currently.Summary;
             this.DetailedSummary = rawResponse.Response.Hourly.Summary;
             this.Temperature = (int)rawResponse.Response.Currently.Temperature;
-            this.Icon = rawResponse.Response.Currently.Icon.ToString();
+            this.IconCode = WeatherDaySummary.GetIconCode(rawResponse.Response.Currently.Icon);
             this.WindSpeed = (int)rawResponse.Response.Currently.WindSpeed;
             this.PrecipitationPercentage = (int)(rawResponse.Response.Currently.PrecipProbability * 100);
             this.HummidityPercentage = (int)(rawResponse.Response.Currently.Humidity * 100);
@@ -45,7 +45,7 @@
 
         public int Temperature { get; set; }
 
-        public string Icon { get; set; }
+        public string IconCode { get; set; }
 
         public int WindSpeed { get; set; }
 
@@ -76,7 +76,7 @@
             this.ShortDayName = this.FullDayName.Substring(0, 3);
             this.LowTemp = (int)day.TemperatureMin;
             this.HightTemp = (int)day.TemperatureMax;
-            this.IconName = day.Icon.ToString();
+            this.IconCode = GetIconCode(day.Icon);
         }
 
         #endregion
@@ -87,7 +87,51 @@
         public string ShortDayName { get; set; }
         public int LowTemp { get; set; }
         public int HightTemp { get; set; }
-        public string IconName { get; set; }
+        public string IconCode { get; set; }
+
+        #endregion
+
+        #region
+
+        public static string GetIconCode(Icon value)
+        {
+            
+            switch (value)
+            {
+                case Icon.ClearDay:
+                    return "\xf00d";
+
+                case Icon.ClearNight:
+                    return "\xf02e";
+
+                case Icon.Rain:
+                    return "\xf008";
+
+                case Icon.Snow:
+                    return "\xf065";
+
+                case Icon.Sleet:
+                    return "\xf0b2";
+
+                case Icon.Wind:
+                    return "\xf085";
+
+                case Icon.Fog:
+                    return "\xf003";
+
+                case Icon.Cloudy:
+                    return "\xf013";
+
+                case Icon.PartlyCloudyDay:
+                    return "\xf002";
+
+                case Icon.PartlyCloudyNight:
+                    return "\xf086";
+
+                default:
+                    return "";
+            }
+        }
 
         #endregion
 
