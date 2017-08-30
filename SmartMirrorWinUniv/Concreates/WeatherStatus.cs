@@ -14,6 +14,7 @@
         public WeatherStatus(DarkSkyResponse rawResponse)
         {
             this.Summary = rawResponse.Response.Currently.Summary;
+            this.DetailedSummary = rawResponse.Response.Hourly.Summary;
             this.Temperature = (int)rawResponse.Response.Currently.Temperature;
             this.Icon = rawResponse.Response.Currently.Icon.ToString();
             this.WindSpeed = (int)rawResponse.Response.Currently.WindSpeed;
@@ -39,6 +40,8 @@
         #region Public Properties
 
         public string Summary { get; set; }
+
+        public string DetailedSummary { get; set; }
 
         public int Temperature { get; set; }
 

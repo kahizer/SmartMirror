@@ -2477,6 +2477,9 @@
             "rid": "aot"
           }
         }
+      },
+      "weather-icons/2.0.10": {
+        "type": "package"
       }
     },
     "UAP,Version=v10.0.10586/win10-arm": {
@@ -4985,6 +4988,9 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "weather-icons/2.0.10": {
+        "type": "package"
       }
     },
     "UAP,Version=v10.0.10586/win10-arm-aot": {
@@ -7529,6 +7535,9 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "weather-icons/2.0.10": {
+        "type": "package"
       }
     },
     "UAP,Version=v10.0.10586/win10-x64": {
@@ -10046,6 +10055,9 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "weather-icons/2.0.10": {
+        "type": "package"
       }
     },
     "UAP,Version=v10.0.10586/win10-x64-aot": {
@@ -12599,6 +12611,9 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "weather-icons/2.0.10": {
+        "type": "package"
       }
     },
     "UAP,Version=v10.0.10586/win10-x86": {
@@ -15116,6 +15131,9 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "weather-icons/2.0.10": {
+        "type": "package"
       }
     },
     "UAP,Version=v10.0.10586/win10-x86-aot": {
@@ -17669,6 +17687,9 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "weather-icons/2.0.10": {
+        "type": "package"
       }
     }
   },
@@ -26371,12 +26392,31 @@
         "system.xml.xmlserializer.4.0.11.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "weather-icons/2.0.10": {
+      "sha512": "cNh++85qP5pDvY5T7ijtBaCbtBtPtQBZRc4savoaFY3V4CvLYEEJgMh9Z6AKpUIozchhpOmdtmJK9KebdeHihg==",
+      "type": "package",
+      "path": "weather-icons/2.0.10",
+      "files": [
+        "content/Content/weather-icons-wind.css",
+        "content/Content/weather-icons-wind.min.css",
+        "content/Content/weather-icons.css",
+        "content/Content/weather-icons.min.css",
+        "content/fonts/weathericons-regular-webfont.eot",
+        "content/fonts/weathericons-regular-webfont.svg",
+        "content/fonts/weathericons-regular-webfont.ttf",
+        "content/fonts/weathericons-regular-webfont.woff",
+        "content/fonts/weathericons-regular-webfont.woff2",
+        "weather-icons.2.0.10.nupkg.sha512",
+        "weather-icons.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.10586": [
       "DarkSkyCore >= 3.0.0",
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.4.0"
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.4.0",
+      "weather-icons >= 2.0.10"
     ]
   },
   "packageFolders": {
@@ -26418,6 +26458,10 @@
       "Microsoft.NETCore.UniversalWindowsPlatform": {
         "target": "Package",
         "version": "5.4.0"
+      },
+      "weather-icons": {
+        "target": "Package",
+        "version": "2.0.10"
       }
     },
     "frameworks": {
@@ -26430,6 +26474,10 @@
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "5.4.0"
+          },
+          "weather-icons": {
+            "target": "Package",
+            "version": "2.0.10"
           }
         }
       }

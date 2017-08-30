@@ -45,20 +45,40 @@ namespace SmartMirrorWinUniv
             this.serviceManager.TimerUpdateEvent += this.UpdaCurrentTimeDisplay;
             this.serviceManager.WeatherUpdateEvent += this.UpdateWeatherStatusDisplay;
             this.serviceManager.QuoteUpdateEvent += this.UpdateLatesQuoteDisplay;
-            
-            //this.serviceManager.LatestNewsEvent += this.UpdateLatestNewsDisplay;
-            
-            //this.serviceManager.TrafficUpdateEvent += this.UpdateLatestTrafficDisplay;
+            this.serviceManager.TrafficUpdateEvent += this.UpdateLatestTrafficDisplay;
+            this.serviceManager.LatestNewsEvent += this.UpdateLatestNewsDisplay;
+        }
 
+        private void UpdateLatestNewsDisplay(object sender, NewsModel newsModel)
+        {
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                () =>
+                    {
+                        this.NewsTextBlock01.Text = "•  " + newsModel.LatestNews[0].Title;
+                        this.NewsTextBlock02.Text = "•  " + newsModel.LatestNews[1].Title;
+                        this.NewsTextBlock03.Text = "•  " + newsModel.LatestNews[2].Title;
+                        this.NewsTextBlock04.Text = "•  " + newsModel.LatestNews[3].Title;
+                        this.NewsTextBlock05.Text = "•  " + newsModel.LatestNews[4].Title;
+                        this.NewsTextBlock06.Text = "•  " + newsModel.LatestNews[5].Title;
+                        this.NewsTextBlock07.Text = "•  " + newsModel.LatestNews[6].Title;
+                        this.NewsTextBlock08.Text = "•  " + newsModel.LatestNews[7].Title;
+                        this.NewsTextBlock09.Text = "•  " + newsModel.LatestNews[8].Title;
+                        this.NewsTextBlock10.Text = "•  " + newsModel.LatestNews[9].Title;
+                    }
+            );
+        }
 
-
-            //this.Traffic = this.serviceManager.GetTrafficInformation();
-            //this.News = this.serviceManager.GetNews();
-            //this.Weather = this.serviceManager.GetWeather();
-            //this.TempTextBlock.Text = this.Weather.Temperature.ToString()+ "°";
-            //this.Quote = this.serviceManager.GetQuoteOfTheDay();
-            //this.QuoteTextBlock.DataContext = this.Quote;
-            //this.AuthorTextBlock.DataContext = this.Quote;
+        private void UpdateLatestTrafficDisplay(object sender, TrafficStatus trafficStatus)
+        {
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                () =>
+                    {
+                        this.TrafficInformationTextBlock.Text = $"{trafficStatus.Duration} min ({trafficStatus.Distance} mi)";
+                        this.ArrivalTimeTextBlock.Text = $"ETA if leving now " + trafficStatus.ArrivalTime.ToString("h:mm tt");
+                    }
+            );
         }
 
         private void UpdateLatesQuoteDisplay(object sender, QuoteModel quoteModel)
@@ -93,32 +113,48 @@ namespace SmartMirrorWinUniv
                 CoreDispatcherPriority.Normal,
                 () =>
                     {
+                        this.SunsetTimeTextBlock.Text = weather.SunsetTime.ToString("h:mm tt");
+
+                        this.WindSpeedTextBlock.Text = weather.WindSpeed.ToString();
+
+                        //this.MainIconTextBlock.Text = "day-sunny";//weather.Icon;
                         this.TempTextBlock.Text = weather.Temperature.ToString() + "°";
-                        this.SumaryTextBlock.Text = weather.Summary;
+                        this.DetailedSumaryTextBlock.Text = weather.DetailedSummary;
 
                         this.DayTextBlock01.Text = weather.DailySummary[1].ShortDayName;
+                        //this.IconTextBlock01.Text = weather.DailySummary[1].IconName;
                         this.HighTempDay01.Text = weather.DailySummary[1].HightTemp.ToString();
                         this.LowTempDay01.Text = weather.DailySummary[1].LowTemp.ToString();
 
                         this.DayTextBlock02.Text = weather.DailySummary[2].ShortDayName;
+                        //this.IconTextBlock02.Text = weather.DailySummary[2].IconName;
                         this.HighTempDay02.Text = weather.DailySummary[2].HightTemp.ToString();
                         this.LowTempDay02.Text = weather.DailySummary[2].LowTemp.ToString();
 
                         this.DayTextBlock03.Text = weather.DailySummary[3].ShortDayName;
+                        //this.IconTextBlock03.Text = weather.DailySummary[3].IconName;
                         this.HighTempDay03.Text = weather.DailySummary[3].HightTemp.ToString();
                         this.LowTempDay03.Text = weather.DailySummary[3].LowTemp.ToString();
 
                         this.DayTextBlock04.Text = weather.DailySummary[4].ShortDayName;
+                        //this.IconTextBlock04.Text = weather.DailySummary[4].IconName;
                         this.HighTempDay04.Text = weather.DailySummary[4].HightTemp.ToString();
                         this.LowTempDay04.Text = weather.DailySummary[4].LowTemp.ToString();
 
                         this.DayTextBlock05.Text = weather.DailySummary[5].ShortDayName;
+                        //this.IconTextBlock05.Text = weather.DailySummary[5].IconName;
                         this.HighTempDay05.Text = weather.DailySummary[5].HightTemp.ToString();
                         this.LowTempDay05.Text = weather.DailySummary[5].LowTemp.ToString();
 
                         this.DayTextBlock06.Text = weather.DailySummary[6].ShortDayName;
+                        //this.IconTextBlock06.Text = weather.DailySummary[6].IconName;
                         this.HighTempDay06.Text = weather.DailySummary[6].HightTemp.ToString();
                         this.LowTempDay06.Text = weather.DailySummary[6].LowTemp.ToString();
+
+                        this.DayTextBlock07.Text = weather.DailySummary[7].ShortDayName;
+                        //this.IconTextBlock07.Text = weather.DailySummary[7].IconName;
+                        this.HighTempDay07.Text = weather.DailySummary[7].HightTemp.ToString();
+                        this.LowTempDay07.Text = weather.DailySummary[7].LowTemp.ToString();
                     }
             );
         }
