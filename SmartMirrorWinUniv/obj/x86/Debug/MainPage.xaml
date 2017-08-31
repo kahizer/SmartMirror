@@ -111,7 +111,7 @@
                 </StackPanel>
 
                 <!-- News -->
-                <TextBlock Margin="0,100,15,0" Style="{StaticResource NewsTextBlockStyle}" Text="                           Trending News" 
+                <TextBlock Margin="0,175,15,0" Style="{StaticResource NewsTextBlockStyle}" Text="                           Trending News" 
                            TextDecorations="Underline" HorizontalAlignment="Right" FontWeight="SemiBold"/>
                 <TextBlock x:ConnectionId='4' Margin="0,8,0,0" Name="NewsTextBlock01" Style="{StaticResource NewsTextBlockStyle}"/>
                 <TextBlock x:ConnectionId='5' Name="NewsTextBlock02" Style="{StaticResource NewsTextBlockStyle}"/>
