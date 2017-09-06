@@ -39,14 +39,14 @@ namespace SmartMirrorWinUniv
         public MainPage()
         {
             this.InitializeComponent();
-            this.DataContext = this;
+            //this.DataContext = this;
 
             this.serviceManager = new ServiceManager();
-            this.serviceManager.TimerUpdateEvent += this.UpdaCurrentTimeDisplay;
-            this.serviceManager.WeatherUpdateEvent += this.UpdateWeatherStatusDisplay;
-            this.serviceManager.QuoteUpdateEvent += this.UpdateLatesQuoteDisplay;
-            this.serviceManager.TrafficUpdateEvent += this.UpdateLatestTrafficDisplay;
-            this.serviceManager.LatestNewsEvent += this.UpdateLatestNewsDisplay;
+            //this.serviceManager.TimerUpdateEvent += this.UpdaCurrentTimeDisplay;
+            //this.serviceManager.WeatherUpdateEvent += this.UpdateWeatherStatusDisplay;
+            //this.serviceManager.QuoteUpdateEvent += this.UpdateLatesQuoteDisplay;
+            //this.serviceManager.TrafficUpdateEvent += this.UpdateLatestTrafficDisplay;
+            //this.serviceManager.LatestNewsEvent += this.UpdateLatestNewsDisplay;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         }
 
         private void UpdateLatestNewsDisplay(object sender, NewsModel newsModel)

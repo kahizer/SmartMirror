@@ -39,7 +39,6 @@ namespace SmartMirrorWinUniv.Services
 
         #endregion
 
-
         #region Public Methods
 
         private void UpdateNews(object state)
