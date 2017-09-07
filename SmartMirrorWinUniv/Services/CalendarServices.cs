@@ -1,20 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Calendar.v3;
-using Google.Apis.Calendar.v3.Data;
-using Google.Apis.Services;
-using Google.Apis.Util.Store;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using Windows.Security.Authentication.Web;
 using Windows.Foundation;
 using SmartMirrorWinUniv.Concreates;
@@ -25,44 +12,36 @@ namespace SmartMirrorWinUniv.Services
     {
         #region Fields
 
-        static string[] Scopes = { CalendarService.Scope.CalendarReadonly };
-        static string ApplicationName = "Google Calendar API .NET Quickstart";
-
         private string clientId = "425431929822-l1l3lt2e2ao9jttnq5gkl77td6gvvmuq.apps.googleusercontent.com";
 
         private string clientSecret = "zYbEBUcjnRJfH0a88FIcaSlW";
 
-        private string userName = "kahizer241237@gmail.com";
-
-        private string serviceAccountEmail = "kahizer241237@gmail.com";
-
-        private string googleAuthenticationCode = string.Empty;
-
-        private string redirectURI = "http://localhost";//"pw.oauth2:/oauth2redirect";
+        private string redirectURI = "http://localhost";
 
         private string scope = "https://www.googleapis.com/auth/calendar.readonly";
 
         private Timer timer;
 
-        private int elapseTime = 60000; //every 10 minutes
+        private int elapseTime = 6000; //every 10 minutes
 
+        private bool gotAccessToken = false;
+
+        private string accessToken = string.Empty;
+
+        private Windows.Web.Http.HttpClient client;
         #endregion
 
         #region Constructor
 
         public CalendarServices()
         {
-            this.timer = new Timer(this.UpdateCalendar, null, 0, Timeout.Infinite);
-            //this.GetEvents();
-            //var newre = result;
+            this.Authenticate();
         }
 
 
         #endregion
 
         #region Public Properties
-
-        public CalendarStatus GetCalendaeStatus { get; set; }
 
         #endregion
 
@@ -74,39 +53,21 @@ namespace SmartMirrorWinUniv.Services
 
         #region Private Methods
 
-        private void UpdateCalendar(object state)
+        private async void Authenticate()
         {
-            var calendar = this.GetCalendar().Result;
-            this.LatestCalendarEvent?.Invoke(this, calendar);
-            this.timer.Change(this.elapseTime, Timeout.Infinite);
-        }
-
-        private async Task<CalendarStatus> GetCalendar()
-        {
-            CalendarStatus calendar = null;
-            //var getCalendarTask = new TaskFactory().StartNew(() =>
-            //{
-                var result = this.GetEvents();
-                //calendar = new CalendarStatus(result);
-            //});
-
-            //getCalendarTask.Wait();
-
-            return calendar;
-        }
-
-        private string GetEvents()
-        {
-            var clientId = this.clientId;
-            var redirectURI = "http://localhost";//"pw.oauth2:/oauth2redirect";
-            var scope = "https://www.googleapis.com/auth/calendar.readonly";
-            var SpotifyUrl = $"https://accounts.google.com/o/oauth2/auth?client_id={clientId}&redirect_uri={Uri.EscapeDataString(redirectURI)}&response_type=code&scope={Uri.EscapeDataString(scope)}";
+            var SpotifyUrl = $"https://accounts.google.com/o/oauth2/auth?client_id={this.clientId}&redirect_uri={Uri.EscapeDataString(this.redirectURI)}&response_type=code&scope={Uri.EscapeDataString(this.scope)}";
             var StartUri = new Uri(SpotifyUrl);
             var EndUri = new Uri(redirectURI);
 
-            string result = string.Empty;
-
-            var authenticateWorker = new TaskFactory().StartNew(async() => {
+            if (this.gotAccessToken)
+            {
+                var data = this.GetRawEvents().Result;
+                var calendar = new CalendarStatus(data);
+                this.LatestCalendarEvent?.Invoke(this, calendar);
+                this.timer.Change(this.elapseTime, Timeout.Infinite);
+            }
+            else
+            {
                 WebAuthenticationResult WebAuthenticationResult = await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.None, StartUri, EndUri);
                 if (WebAuthenticationResult.ResponseStatus == WebAuthenticationStatus.Success)
                 {
@@ -114,69 +75,66 @@ namespace SmartMirrorWinUniv.Services
                     if (decoder[0].Name != "code")
                     {
                         System.Diagnostics.Debug.WriteLine($"OAuth authorization error: {decoder.GetFirstValueByName("error")}.");
-                        //return string.Empty;
+                        return;
                     }
 
                     var autorizationCode = decoder.GetFirstValueByName("code");
-                    this.googleAuthenticationCode = decoder.GetFirstValueByName("code");
 
-                    var data = this.GetRawEvents().Result;
-                    result = data;
-                    //return data;
+                    var pairs = new Dictionary<string, string>();
+                    pairs.Add("code", autorizationCode);
+                    pairs.Add("client_id", this.clientId);
+                    pairs.Add("client_secret", this.clientSecret);
+                    pairs.Add("redirect_uri", this.redirectURI);
+                    pairs.Add("grant_type", "authorization_code");
+
+                    var formContent = new Windows.Web.Http.HttpFormUrlEncodedContent(pairs);
+
+                    var client = new Windows.Web.Http.HttpClient();
+                    var httpResponseMessage = await client.PostAsync(new Uri("https://www.googleapis.com/oauth2/v4/token"), formContent);
+                    if (!httpResponseMessage.IsSuccessStatusCode)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"OAuth authorization error: {httpResponseMessage.StatusCode}.");
+                        return;
+                    }
+
+                    string jsonString = await httpResponseMessage.Content.ReadAsStringAsync();
+                    var jsonObject = Windows.Data.Json.JsonObject.Parse(jsonString);
+                    var accessToken = jsonObject["access_token"].GetString();
+                    this.accessToken = accessToken;
+
+                    this.gotAccessToken = true;
+                    this.timer = new Timer(this.GetEvents, null, 0, Timeout.Infinite);
 
                 }
-
-                var msg = "testing msg";
-            });
-
-
-            authenticateWorker.Wait();
-            // Get Authorization code
-
-
-            return result;
+                else
+                {
+                    this.gotAccessToken = false;
+                }
+            }
         }
 
-
+        private void GetEvents(object state)
+        {
+            var data = this.GetRawEvents().Result;
+            var calendar = new CalendarStatus(data);
+            this.LatestCalendarEvent?.Invoke(this, calendar);
+            this.timer.Change(this.elapseTime, Timeout.Infinite);
+        }
 
         private async Task<string> GetRawEvents()
         {
-            var SpotifyUrl = $"https://accounts.google.com/o/oauth2/auth?client_id={this.clientId}&redirect_uri={Uri.EscapeDataString(this.redirectURI)}&response_type=code&scope={Uri.EscapeDataString(scope)}";
-            var StartUri = new Uri(SpotifyUrl);
-            var EndUri = new Uri(redirectURI);
-
-            //Get Access Token
-            var pairs = new Dictionary<string, string>();
-            pairs.Add("code", this.googleAuthenticationCode);
-            pairs.Add("client_id", clientId);
-            pairs.Add("client_secret", clientSecret);
-            pairs.Add("redirect_uri", redirectURI);
-            pairs.Add("grant_type", "authorization_code");
-            //pairs.Add("grant_type", "authorization_code");
-
-            var formContent = new Windows.Web.Http.HttpFormUrlEncodedContent(pairs);
-
-            var client = new Windows.Web.Http.HttpClient();
-            var httpResponseMessage = await client.PostAsync(new Uri("https://www.googleapis.com/oauth2/v4/token"), formContent);
-            if (!httpResponseMessage.IsSuccessStatusCode)
-            {
-                System.Diagnostics.Debug.WriteLine($"OAuth authorization error: {httpResponseMessage.StatusCode}.");
-                return string.Empty;
-            }
-
-            string jsonString = await httpResponseMessage.Content.ReadAsStringAsync();
-            var jsonObject = Windows.Data.Json.JsonObject.Parse(jsonString);
-            var accessToken = jsonObject["access_token"].GetString();
-
-
             //Call Google Calendar API
             using (var httpRequest = new Windows.Web.Http.HttpRequestMessage())
             {
-                string calendarAPI = "https://www.googleapis.com/calendar/v3/calendars/kahizer241237@gmail.com/events";//"https://www.googleapis.com/calendar/v3/users/me/calendarList";
+                var yesterdayDateTime = DateTime.Now.AddDays(-1);
+                var minDateString = yesterdayDateTime.ToString("O");
+
+                var client = new Windows.Web.Http.HttpClient();
+                string calendarAPI = $"https://www.googleapis.com/calendar/v3/calendars/kahizer241237@gmail.com/events?timeMin={minDateString}";
 
                 httpRequest.Method = Windows.Web.Http.HttpMethod.Get;
                 httpRequest.RequestUri = new Uri(calendarAPI);
-                httpRequest.Headers.Authorization = new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Bearer", accessToken);
+                httpRequest.Headers.Authorization = new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Bearer", this.accessToken);
 
                 var response = await client.SendRequestAsync(httpRequest);
 
@@ -184,7 +142,6 @@ namespace SmartMirrorWinUniv.Services
                 {
                     var listString = await response.Content.ReadAsStringAsync();
                     return listString;
-                    //TODO
                 }
             }
 

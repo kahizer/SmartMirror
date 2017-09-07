@@ -38,12 +38,23 @@ namespace SmartMirrorWinUniv.Concreates
 
             foreach(dynamic item in items)
             {
-                var dtObject = item.start.dateTime.Value;
-                DateTime dueDate = (DateTime)dtObject;
-                string title = item.summary;
+                try
+                {
+                    dynamic startobject = item.start;
+                    dynamic dt = startobject.date;
+                    dynamic value = dt.Value;
+                    string dtString = value.ToString();
+                    DateTime dueDate = DateTime.Parse(dtString);
+                    string title = item.summary;
 
-                var calendarItem = new CalendarItem { DueDate = dueDate, Title = title, EasyDueDate = this.GetEasyDueDate(dueDate) };
-                this.CalenderItems.Add(calendarItem);
+                    var calendarItem = new CalendarItem { DueDate = dueDate, Title = title, EasyDueDate = this.GetEasyDueDate(dueDate) };
+                    this.CalenderItems.Add(calendarItem);
+                }
+                catch(Exception ex)
+                {
+                    var msg = ex.Message;
+                }
+                
             }
         }
 
@@ -61,13 +72,17 @@ namespace SmartMirrorWinUniv.Concreates
                 var months = days / 30;
                 return $"{months} months";
             }
-            else if(days > 0)
+            else if(days > 1)
             {
                 return $"{days} days";
             }
+            else if (days == 1)
+            {
+                return "Tomorrow";
+            }
             else
             {
-                return "today";
+                return "Today";
             }
         }
 

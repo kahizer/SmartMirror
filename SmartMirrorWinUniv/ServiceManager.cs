@@ -35,6 +35,9 @@ namespace SmartMirrorWinUniv
         public ServiceManager()
         {
             this.calendarServices = new CalendarServices();
+            this.calendarServices.LatestCalendarEvent += (sender, status) => { this.CalendarStatusEvent?.Invoke(this, status); };
+
+
             //this.googleMapsServices = new GoogleMapsServices();
             //this.googleMapsServices.TrafficUpdateEvent += (sender, status) => { this.TrafficUpdateEvent?.Invoke(this, status); };
 
@@ -64,6 +67,8 @@ namespace SmartMirrorWinUniv
         public event EventHandler<TrafficStatus> TrafficUpdateEvent;
 
         public event EventHandler<NewsModel> LatestNewsEvent;
+
+        public event EventHandler<CalendarStatus> CalendarStatusEvent;
 
         #endregion        
 
