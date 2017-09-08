@@ -42,12 +42,18 @@ namespace SmartMirrorWinUniv
             //this.DataContext = this;
 
             this.serviceManager = new ServiceManager();
-            this.serviceManager.CalendarStatusEvent += this.UpdateLatestNewsDisplay;
+            this.serviceManager.LatestEmailsEvent += ServiceManagerOnLatestEmailsEvent;
+            //this.serviceManager.CalendarStatusEvent += this.UpdateLatestNewsDisplay;
             //this.serviceManager.TimerUpdateEvent += this.UpdaCurrentTimeDisplay;
             //this.serviceManager.WeatherUpdateEvent += this.UpdateWeatherStatusDisplay;
             //this.serviceManager.QuoteUpdateEvent += this.UpdateLatesQuoteDisplay;
             //this.serviceManager.TrafficUpdateEvent += this.UpdateLatestTrafficDisplay;
             //this.serviceManager.LatestNewsEvent += this.UpdateLatestNewsDisplay;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        }
+
+        private void ServiceManagerOnLatestEmailsEvent(object sender, EmailStatus emailStatus)
+        {
+            var meials = emailStatus.EmailMessages;
         }
 
         private void UpdateLatestNewsDisplay(object sender, CalendarStatus calendarStatus)

@@ -31,41 +31,61 @@
     <AppXManifest Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-07T03:20:03.552</Modified>
+      <Modified>2017-09-08T03:45:28.890</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\SmartMirrorWinUniv.exe">
       <PackagePath>entrypoint\SmartMirrorWinUniv.exe</PackagePath>
-      <Modified>2017-09-07T03:20:03.280</Modified>
+      <Modified>2017-09-08T03:45:28.585</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\DarkSkyCore\3.0.0\lib\netstandard1.4\DarkSkyCore.dll">
       <PackagePath>DarkSkyCore.dll</PackagePath>
       <Modified>2017-07-09T03:03:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis\1.29.0\lib\netstandard1.3\Google.Apis.dll">
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis\1.13.1\lib\win81\Google.Apis.PlatformServices.dll">
+      <PackagePath>Google.Apis.PlatformServices.dll</PackagePath>
+      <Modified>2016-05-31T16:56:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis\1.13.1\lib\win81\Google.Apis.dll">
       <PackagePath>Google.Apis.dll</PackagePath>
-      <Modified>2017-08-30T18:25:50.000</Modified>
+      <Modified>2016-05-31T16:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Auth\1.29.0\lib\netstandard1.3\Google.Apis.Auth.PlatformServices.dll">
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Auth\1.13.1\lib\win81\Google.Apis.Auth.PlatformServices.dll">
       <PackagePath>Google.Apis.Auth.PlatformServices.dll</PackagePath>
-      <Modified>2017-08-30T18:25:52.000</Modified>
+      <Modified>2016-05-31T16:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Auth\1.29.0\lib\netstandard1.3\Google.Apis.Auth.dll">
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Auth\1.13.1\lib\win81\Google.Apis.Auth.dll">
       <PackagePath>Google.Apis.Auth.dll</PackagePath>
-      <Modified>2017-08-30T18:25:52.000</Modified>
+      <Modified>2016-05-31T16:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Calendar.v3\1.29.0.962\lib\netstandard1.3\Google.Apis.Calendar.v3.dll">
-      <PackagePath>Google.Apis.Calendar.v3.dll</PackagePath>
-      <Modified>2017-08-30T18:57:44.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Core\1.29.0\lib\netstandard1.3\Google.Apis.Core.dll">
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Core\1.13.1\lib\portable-net45+sl50+netcore45+wpa81+wp8\Google.Apis.Core.dll">
       <PackagePath>Google.Apis.Core.dll</PackagePath>
-      <Modified>2017-08-30T18:25:46.000</Modified>
+      <Modified>2016-05-31T16:56:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Gmail.v1\1.13.1.537\lib\portable-net45+netcore45+wpa81+wp8\Google.Apis.Gmail.v1.dll">
+      <PackagePath>Google.Apis.Gmail.v1.dll</PackagePath>
+      <Modified>2016-06-28T15:46:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Microsoft.Bcl.Async\1.0.168\lib\win8\Microsoft.Threading.Tasks.Extensions.dll">
+      <PackagePath>Microsoft.Threading.Tasks.Extensions.dll</PackagePath>
+      <Modified>2014-04-07T19:26:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Microsoft.Bcl.Async\1.0.168\lib\win8\Microsoft.Threading.Tasks.dll">
+      <PackagePath>Microsoft.Threading.Tasks.dll</PackagePath>
+      <Modified>2014-04-07T19:26:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Microsoft.CSharp\4.3.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
       <Modified>2016-11-05T11:55:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Microsoft.Net.Http\2.2.29\lib\win8\System.Net.Http.Extensions.dll">
+      <PackagePath>System.Net.Http.Extensions.dll</PackagePath>
+      <Modified>2015-02-20T04:10:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Microsoft.Net.Http\2.2.29\lib\win8\System.Net.Http.Primitives.dll">
+      <PackagePath>System.Net.Http.Primitives.dll</PackagePath>
+      <Modified>2015-02-20T04:10:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.2\lib\netcore50\System.ComponentModel.DataAnnotations.dll">
       <PackagePath>System.ComponentModel.DataAnnotations.dll</PackagePath>
@@ -355,13 +375,13 @@
       <PackagePath>System.Net.NetworkInformation.dll</PackagePath>
       <Modified>2016-06-12T06:14:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\System.Net.Requests\4.3.0\runtimes\win\lib\netstandard1.3\System.Net.Requests.dll">
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\System.Net.Requests\4.0.11\runtimes\win\lib\netstandard1.3\System.Net.Requests.dll">
       <PackagePath>System.Net.Requests.dll</PackagePath>
-      <Modified>2016-11-05T11:56:32.000</Modified>
+      <Modified>2016-06-12T06:14:02.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\System.Net.WebHeaderCollection\4.3.0\lib\netstandard1.3\System.Net.WebHeaderCollection.dll">
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\System.Net.WebHeaderCollection\4.0.1\lib\netstandard1.3\System.Net.WebHeaderCollection.dll">
       <PackagePath>System.Net.WebHeaderCollection.dll</PackagePath>
-      <Modified>2016-11-05T11:56:30.000</Modified>
+      <Modified>2016-06-12T06:14:08.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\System.Net.WebSockets\4.0.0\lib\netstandard1.3\System.Net.WebSockets.dll">
       <PackagePath>System.Net.WebSockets.dll</PackagePath>
@@ -547,6 +567,10 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-12T06:15:04.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Zlib.Portable.Signed\1.11.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll">
+      <PackagePath>Zlib.Portable.dll</PackagePath>
+      <Modified>2015-06-22T16:00:48.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2017-09-06T20:52:23.961</Modified>
@@ -596,11 +620,11 @@
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-07T03:00:24.325</Modified>
+      <Modified>2017-09-08T03:39:44.322</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\Core\SmartMirrorWinUniv.exe">
       <PackagePath>SmartMirrorWinUniv.exe</PackagePath>
-      <Modified>2017-09-07T03:20:03.547</Modified>
+      <Modified>2017-09-08T03:45:28.885</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

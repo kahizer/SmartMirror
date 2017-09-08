@@ -25,6 +25,8 @@ namespace SmartMirrorWinUniv
 
         private CalendarServices calendarServices;
 
+        private MailServices mailServices;
+
         private float lat = 37.621998f;
         private float logt = -122.073551f;
 
@@ -34,8 +36,11 @@ namespace SmartMirrorWinUniv
 
         public ServiceManager()
         {
-            this.calendarServices = new CalendarServices();
-            this.calendarServices.LatestCalendarEvent += (sender, status) => { this.CalendarStatusEvent?.Invoke(this, status); };
+            this.mailServices = new MailServices();
+            this.mailServices.LatestEmailsEvent += (sender, status) => { this.LatestEmailsEvent?.Invoke(this, status);};
+
+            //this.calendarServices = new CalendarServices();
+            //this.calendarServices.LatestCalendarEvent += (sender, status) => { this.CalendarStatusEvent?.Invoke(this, status); };
 
 
             //this.googleMapsServices = new GoogleMapsServices();
@@ -70,9 +75,12 @@ namespace SmartMirrorWinUniv
 
         public event EventHandler<CalendarStatus> CalendarStatusEvent;
 
-        #endregion        
+        public event EventHandler<EmailStatus> LatestEmailsEvent;
+
+        #endregion
 
         #region
+
         #endregion
     }
 }
