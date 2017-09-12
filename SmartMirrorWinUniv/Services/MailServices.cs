@@ -20,7 +20,9 @@ namespace SmartMirrorWinUniv.Services
     {
         #region Fields
 
-        private UserCredential _credential;
+       // private UserCredential _credential;
+
+        private UserCredential credential;
 
         const string AppName = "SmartMirror";
 
@@ -36,10 +38,36 @@ namespace SmartMirrorWinUniv.Services
         {
             var worker = Task.Factory.StartNew(
                () =>
-                {
-                    var credential = this.GetCredential().Result;
-                });
+                   {
+                       var crd = this.GetCredentials();
+
+                       //ServiceManager.GoogleCredential.RevokeTokenAsync(new CancellationToken()).GetAwaiter().GetResult();
+                       //var resultToken = ServiceManager.GoogleCredential.RevokeTokenAsync(CancellationToken.None).Result;
+                       //var credential = this.GetCredential().Result;
+                   });
             worker.Wait();
+        }
+
+        private async Task<UserCredential> GetCredentials()
+        {
+            try
+            {
+                var scope = new[] { GmailService.Scope.GmailModify, "https://www.googleapis.com/auth/calendar.readonly" };
+                var uri = new Uri("ms-appx:///client_id.json");
+
+                this.credential =
+                    await GoogleWebAuthorizationBroker.AuthorizeAsync(uri, scope, "user", CancellationToken.None);
+
+                this.timer = new Timer(this.GetEmails, null, 0, Timeout.Infinite);
+
+                return this.credential;
+            }
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+                return null;
+            }
+            
         }
 
         #endregion
@@ -52,33 +80,78 @@ namespace SmartMirrorWinUniv.Services
 
         #region Private Methods
 
-        private async Task<UserCredential> GetCredential()
-        {
-            var scopes = new[] { GmailService.Scope.GmailModify, GmailService.Scope.GmailReadonly, GmailService.Scope.GmailCompose, GmailService.Scope.MailGoogleCom };
-            var uri = new Uri("ms-appx:///client_id.json");
+        //private async Task<UserCredential> GetCredential()
+        //{
 
-            _credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(uri, scopes, "kahizer241237@hotmail.com", CancellationToken.None);
+            //ClientSecrets secrets = new ClientSecrets()
+            //                            {
+            //                                ClientId = "425431929822-l1l3lt2e2ao9jttnq5gkl77td6gvvmuq.apps.googleusercontent.com",
+            //                                ClientSecret = "zYbEBUcjnRJfH0a88FIcaSlW"
+            //};
 
-            this.timer = new Timer(this.GetEmails, null, 0, Timeout.Infinite);
+            //var token = new TokenResponse { RefreshToken = "https://accounts.google.com/o/oauth2/token" };
+
+            //var scopes = new[] { GmailService.Scope.GmailModify, GmailService.Scope.GmailReadonly, GmailService.Scope.GmailCompose, GmailService.Scope.MailGoogleCom };
+            //var uri = new Uri("ms-appx:///client_id.json");
+
+            //_credential = new UserCredential(new GoogleAuthorizationCodeFlow(
+            //        new GoogleAuthorizationCodeFlow.Initializer
+            //            {
+            //                ClientSecrets = secrets,
+            //                Scopes = scopes
+            //            }),
+            //    "kahizer241237@gmail.com",
+            //    token);
+
+            //this.timer = new Timer(this.GetEmails, null, 0, Timeout.Infinite);
             //this.GetEmails();
-            return _credential;
+            //return _credential;
 
-            
-        }
+            //////ConfigureAwait(true);
+            //try
+            //{
+            ////    var scopes = new[] {
+            ////    GmailService.Scope.GmailModify,
+            ////    GmailService.Scope.GmailReadonly,
+            ////    GmailService.Scope.GmailCompose,
+            ////    GmailService.Scope.MailGoogleCom,
+            ////    //CalendarService.Scope.CalendarReadonly,
+            ////    //CalendarService.Scope.Calendar
+            ////};
+
+            ////    var uri = new Uri("ms-appx:///client_id.json");
+
+            //var scopes = new[] { GmailService.Scope.GmailModify, GmailService.Scope.GmailReadonly, GmailService.Scope.GmailCompose, GmailService.Scope.MailGoogleCom };
+            //var uri = new Uri("ms-appx:///client_id.json");
+
+
+
+            //_credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(uri, scopes, "kahizer241237@hotmail.com", CancellationToken.None);
+
+
+            //    this.timer = new Timer(this.GetEmails, null, 0, Timeout.Infinite);
+            //    return _credential;
+            //}
+            //catch (Exception ex)
+            //{
+            //    var msg = ex.Message;
+            //}
+
+            //return null;
+        //}
 
         private async void GetEmails(object state)
         {
             var service = new GmailService(new BaseClientService.Initializer()
-                                               {
-                                                   HttpClientInitializer = _credential,
-                                                   ApplicationName = AppName,
-                                               });
+            {
+                HttpClientInitializer = this.credential,
+                ApplicationName = AppName,
+            });
             var sizeEstimate = 0L;
             IList<Message> messages = null;
             //var emailMessages = new List<EmailMessage>();
 
             var mailstatus = new EmailStatus();
-
 
             await Task.Run(async () =>
                 {
@@ -109,9 +182,9 @@ namespace SmartMirrorWinUniv.Services
                         }
                         catch (Exception ex)
                         {
-                            
+
                         }
-                        
+
                         mailstatus.EmailMessages.Add(mailMessage);
 
                     }

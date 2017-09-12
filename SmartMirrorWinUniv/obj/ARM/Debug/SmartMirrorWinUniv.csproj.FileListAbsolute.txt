@@ -12,7 +12,6 @@ C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bi
 C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Google.Apis.dll
 C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Google.Apis.Auth.PlatformServices.dll
 C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Google.Apis.Auth.dll
-C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Google.Apis.Calendar.v3.dll
 C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Google.Apis.Core.dll
 C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Microsoft.CSharp.dll
 C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\System.ComponentModel.DataAnnotations.dll
@@ -233,3 +232,16 @@ C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\ob
 C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Debug\resources.en.resfiles.intermediate
 C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Debug\ProjectArchitectures.txt
 C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Debug\SmartMirrorWinUniv.csprojResolveAssemblyReference.cache
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Google.Apis.PlatformServices.dll
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Google.Apis.PlatformServices.pdb
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Google.Apis.pdb
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Google.Apis.Auth.PlatformServices.pdb
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Google.Apis.Auth.pdb
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Google.Apis.Core.pdb
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Google.Apis.Gmail.v1.dll
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Google.Apis.Gmail.v1.pdb
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\System.Net.Http.Extensions.dll
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\System.Net.Http.Primitives.dll
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Zlib.Portable.dll

@@ -34,22 +34,19 @@ namespace SmartMirrorWinUniv.Concreates
 
         #region Private Methods
 
-        #region
-
         private void DeSerializeJson(string jsonData)
         {
             dynamic jsonObject = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonData);
 
             double rawDistance = (double)jsonObject.routes[0].legs[0].distance.value;
-            var rawTime = (int)jsonObject.routes[0].legs[0].duration.value;
+            //var rawTime = (int)jsonObject.routes[0].legs[0].duration.value;
+            var rawTime = (int)jsonObject.routes[0].legs[0].duration_in_traffic.value;
 
             this.Distance = (int)(rawDistance * 0.00062137);
             this.Duration = rawTime / 60;
 
             this.ArrivalTime = DateTime.Now.AddSeconds(rawTime);
          }
-
-        #endregion
 
         #endregion
     }

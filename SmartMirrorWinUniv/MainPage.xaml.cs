@@ -42,13 +42,13 @@ namespace SmartMirrorWinUniv
             //this.DataContext = this;
 
             this.serviceManager = new ServiceManager();
-            this.serviceManager.LatestEmailsEvent += ServiceManagerOnLatestEmailsEvent;
-            //this.serviceManager.CalendarStatusEvent += this.UpdateLatestNewsDisplay;
-            //this.serviceManager.TimerUpdateEvent += this.UpdaCurrentTimeDisplay;
-            //this.serviceManager.WeatherUpdateEvent += this.UpdateWeatherStatusDisplay;
-            //this.serviceManager.QuoteUpdateEvent += this.UpdateLatesQuoteDisplay;
-            //this.serviceManager.TrafficUpdateEvent += this.UpdateLatestTrafficDisplay;
-            //this.serviceManager.LatestNewsEvent += this.UpdateLatestNewsDisplay;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+            //this.serviceManager.LatestEmailsEvent += ServiceManagerOnLatestEmailsEvent;
+            this.serviceManager.CalendarStatusEvent += this.UpdateLatestCalendarEventsDisplay;
+            this.serviceManager.TimerUpdateEvent += this.UpdaCurrentTimeDisplay;
+            this.serviceManager.WeatherUpdateEvent += this.UpdateWeatherStatusDisplay;
+            this.serviceManager.QuoteUpdateEvent += this.UpdateLatesQuoteDisplay;
+            this.serviceManager.TrafficUpdateEvent += this.UpdateLatestTrafficDisplay;
+            this.serviceManager.LatestNewsEvent += this.UpdateLatestNewsDisplay;
         }
 
         private void ServiceManagerOnLatestEmailsEvent(object sender, EmailStatus emailStatus)
@@ -56,7 +56,7 @@ namespace SmartMirrorWinUniv
             var meials = emailStatus.EmailMessages;
         }
 
-        private void UpdateLatestNewsDisplay(object sender, CalendarStatus calendarStatus)
+        private void UpdateLatestCalendarEventsDisplay(object sender, CalendarStatus calendarStatus)
         {
             //var cs = calendarStatus;
         }

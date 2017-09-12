@@ -81,9 +81,9 @@
 
         private string GetTripInformation()
         {
-            string url =
-                $"https://maps.googleapis.com/maps/api/directions/json?origin={this.origenFormatted}&destination={this.destinationFormatted}&key={this.ApiKey}";
+            //string url = $"https://maps.googleapis.com/maps/api/directions/json?origin={this.origenFormatted}&destination={this.destinationFormatted}&key={this.ApiKey}";
 
+            string url = $"https://maps.googleapis.com/maps/api/directions/json?origin={this.origenFormatted}&destination={this.destinationFormatted}&departure_time=now&traffic_model=best_guess&key={this.ApiKey}";
 
             WebRequest request = WebRequest.Create(url);
 

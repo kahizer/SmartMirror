@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>73A013A1AE97EE36AE6F43746AC5F0CB59EB578A18CD9FB3ABD977B3C5EAFA5A</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>F4F6F52C66568FCD00664C03B2F89C525D19BFD89ABA2EB836B12DA8903EFEE4</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>d72253a6-ba5e-4a73-aec8-85c476ec53df_1.0.0.0_arm__am154zgt9mfp4</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>d72253a6-ba5e-4a73-aec8-85c476ec53df_am154zgt9mfp4!App</RegisteredUserModeAppID>
     <RegisteredPackageID>d72253a6-ba5e-4a73-aec8-85c476ec53df</RegisteredPackageID>
@@ -31,41 +31,61 @@
     <AppXManifest Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-01T00:12:36.327</Modified>
+      <Modified>2017-09-12T02:27:42.589</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\SmartMirrorWinUniv.exe">
       <PackagePath>entrypoint\SmartMirrorWinUniv.exe</PackagePath>
-      <Modified>2017-09-01T00:12:35.738</Modified>
+      <Modified>2017-09-12T02:27:42.271</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\DarkSkyCore\3.0.0\lib\netstandard1.4\DarkSkyCore.dll">
       <PackagePath>DarkSkyCore.dll</PackagePath>
       <Modified>2017-07-09T03:03:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis\1.29.0\lib\netstandard1.3\Google.Apis.dll">
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis\1.13.1\lib\win81\Google.Apis.PlatformServices.dll">
+      <PackagePath>Google.Apis.PlatformServices.dll</PackagePath>
+      <Modified>2016-05-31T16:56:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis\1.13.1\lib\win81\Google.Apis.dll">
       <PackagePath>Google.Apis.dll</PackagePath>
-      <Modified>2017-08-30T18:25:50.000</Modified>
+      <Modified>2016-05-31T16:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Auth\1.29.0\lib\netstandard1.3\Google.Apis.Auth.PlatformServices.dll">
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Auth\1.13.1\lib\win81\Google.Apis.Auth.PlatformServices.dll">
       <PackagePath>Google.Apis.Auth.PlatformServices.dll</PackagePath>
-      <Modified>2017-08-30T18:25:52.000</Modified>
+      <Modified>2016-05-31T16:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Auth\1.29.0\lib\netstandard1.3\Google.Apis.Auth.dll">
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Auth\1.13.1\lib\win81\Google.Apis.Auth.dll">
       <PackagePath>Google.Apis.Auth.dll</PackagePath>
-      <Modified>2017-08-30T18:25:52.000</Modified>
+      <Modified>2016-05-31T16:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Calendar.v3\1.29.0.962\lib\netstandard1.3\Google.Apis.Calendar.v3.dll">
-      <PackagePath>Google.Apis.Calendar.v3.dll</PackagePath>
-      <Modified>2017-08-30T18:57:44.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Core\1.29.0\lib\netstandard1.3\Google.Apis.Core.dll">
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Core\1.13.1\lib\portable-net45+sl50+netcore45+wpa81+wp8\Google.Apis.Core.dll">
       <PackagePath>Google.Apis.Core.dll</PackagePath>
-      <Modified>2017-08-30T18:25:46.000</Modified>
+      <Modified>2016-05-31T16:56:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Google.Apis.Gmail.v1\1.13.1.537\lib\portable-net45+netcore45+wpa81+wp8\Google.Apis.Gmail.v1.dll">
+      <PackagePath>Google.Apis.Gmail.v1.dll</PackagePath>
+      <Modified>2016-06-28T15:46:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Microsoft.Bcl.Async\1.0.168\lib\win8\Microsoft.Threading.Tasks.Extensions.dll">
+      <PackagePath>Microsoft.Threading.Tasks.Extensions.dll</PackagePath>
+      <Modified>2014-04-07T19:26:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Microsoft.Bcl.Async\1.0.168\lib\win8\Microsoft.Threading.Tasks.dll">
+      <PackagePath>Microsoft.Threading.Tasks.dll</PackagePath>
+      <Modified>2014-04-07T19:26:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Microsoft.CSharp\4.3.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
       <Modified>2016-11-05T11:55:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Microsoft.Net.Http\2.2.29\lib\win8\System.Net.Http.Extensions.dll">
+      <PackagePath>System.Net.Http.Extensions.dll</PackagePath>
+      <Modified>2015-02-20T04:10:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Microsoft.Net.Http\2.2.29\lib\win8\System.Net.Http.Primitives.dll">
+      <PackagePath>System.Net.Http.Primitives.dll</PackagePath>
+      <Modified>2015-02-20T04:10:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.2\lib\netcore50\System.ComponentModel.DataAnnotations.dll">
       <PackagePath>System.ComponentModel.DataAnnotations.dll</PackagePath>
@@ -351,13 +371,13 @@
       <PackagePath>System.Net.NetworkInformation.dll</PackagePath>
       <Modified>2016-06-12T06:14:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\System.Net.Requests\4.3.0\runtimes\win\lib\netstandard1.3\System.Net.Requests.dll">
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\System.Net.Requests\4.0.11\runtimes\win\lib\netstandard1.3\System.Net.Requests.dll">
       <PackagePath>System.Net.Requests.dll</PackagePath>
-      <Modified>2016-11-05T11:56:32.000</Modified>
+      <Modified>2016-06-12T06:14:02.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\System.Net.WebHeaderCollection\4.3.0\lib\netstandard1.3\System.Net.WebHeaderCollection.dll">
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\System.Net.WebHeaderCollection\4.0.1\lib\netstandard1.3\System.Net.WebHeaderCollection.dll">
       <PackagePath>System.Net.WebHeaderCollection.dll</PackagePath>
-      <Modified>2016-11-05T11:56:30.000</Modified>
+      <Modified>2016-06-12T06:14:08.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\System.Net.WebSockets\4.0.0\lib\netstandard1.3\System.Net.WebSockets.dll">
       <PackagePath>System.Net.WebSockets.dll</PackagePath>
@@ -543,47 +563,51 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-12T06:15:04.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\Zlib.Portable.Signed\1.11.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll">
+      <PackagePath>Zlib.Portable.dll</PackagePath>
+      <Modified>2015-06-22T16:00:48.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2017-08-31T00:39:14.997</Modified>
+      <Modified>2017-09-06T20:52:23.961</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2017-08-31T00:39:14.986</Modified>
+      <Modified>2017-09-06T20:52:23.951</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-08-31T00:39:14.986</Modified>
+      <Modified>2017-09-06T20:52:23.952</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-08-31T00:39:14.987</Modified>
+      <Modified>2017-09-06T20:52:23.953</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-08-31T00:39:14.988</Modified>
+      <Modified>2017-09-06T20:52:23.953</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-08-31T00:39:14.988</Modified>
+      <Modified>2017-09-06T20:52:23.954</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-08-31T00:39:14.989</Modified>
+      <Modified>2017-09-06T20:52:23.954</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-08-31T00:39:14.990</Modified>
+      <Modified>2017-09-06T20:52:23.955</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\SmartMirrorWinUniv.xr.xml">
       <PackagePath>SmartMirrorWinUniv.xr.xml</PackagePath>
-      <Modified>2017-09-01T00:11:46.036</Modified>
+      <Modified>2017-09-06T20:52:24.753</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -592,11 +616,11 @@
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-01T00:12:36.139</Modified>
+      <Modified>2017-09-12T02:16:23.887</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Core\SmartMirrorWinUniv.exe">
       <PackagePath>SmartMirrorWinUniv.exe</PackagePath>
-      <Modified>2017-09-01T00:12:36.323</Modified>
+      <Modified>2017-09-12T02:27:42.579</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

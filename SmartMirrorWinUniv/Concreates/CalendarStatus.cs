@@ -15,10 +15,9 @@ namespace SmartMirrorWinUniv.Concreates
 
         #region Constructor
 
-        public CalendarStatus(string rawjson)
+        public CalendarStatus()
         {
             this.CalenderItems = new List<CalendarItem>();
-            this.Deserialize(rawjson);
         }
 
         #endregion
@@ -29,14 +28,16 @@ namespace SmartMirrorWinUniv.Concreates
 
         #endregion
 
-        #region Private Methods
-        private void Deserialize(string jsonData)
+        #region Public Properties
+
+        public void AddRawCalendarItems(string jsonData, string type)
         {
+            if (this.CalenderItems == null) this.CalenderItems = new List<CalendarItem>();
+
             dynamic jsonObject = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonData);
-            var currentDate = DateTime.Now;
             var items = jsonObject.items;
 
-            foreach(dynamic item in items)
+            foreach (dynamic item in items)
             {
                 try
                 {
@@ -47,16 +48,22 @@ namespace SmartMirrorWinUniv.Concreates
                     DateTime dueDate = DateTime.Parse(dtString);
                     string title = item.summary;
 
-                    var calendarItem = new CalendarItem { DueDate = dueDate, Title = title, EasyDueDate = this.GetEasyDueDate(dueDate) };
+                    var calendarItem = new CalendarItem { DueDate = dueDate, Title = title, EasyDueDate = this.GetEasyDueDate(dueDate), Type = type};
                     this.CalenderItems.Add(calendarItem);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     var msg = ex.Message;
                 }
-                
+
             }
+
+            this.CalenderItems.Sort((x, y) => DateTime.Compare(x.DueDate, y.DueDate));
         }
+
+        #endregion
+
+        #region Private Methods
 
         private string GetEasyDueDate(DateTime dueDate)
         {
@@ -95,6 +102,7 @@ namespace SmartMirrorWinUniv.Concreates
         public string Title { get; set; }
         public DateTime DueDate { get; set; }
         public string EasyDueDate { get; set; }
+        public string Type { get; set; }
 
     }
 

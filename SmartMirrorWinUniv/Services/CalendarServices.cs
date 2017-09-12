@@ -29,6 +29,9 @@ namespace SmartMirrorWinUniv.Services
         private string accessToken = string.Empty;
 
         private Windows.Web.Http.HttpClient client;
+
+        private string holydaysCalendarId = "en.usa%23holiday%40group.v.calendar.google.com";
+
         #endregion
 
         #region Constructor
@@ -61,8 +64,8 @@ namespace SmartMirrorWinUniv.Services
 
             if (this.gotAccessToken)
             {
-                var data = this.GetRawEvents().Result;
-                var calendar = new CalendarStatus(data);
+                var calendar = this.GetRawEvents().Result;
+                //var calendar = new CalendarStatus(data);
                 this.LatestCalendarEvent?.Invoke(this, calendar);
                 this.timer.Change(this.elapseTime, Timeout.Infinite);
             }
@@ -115,20 +118,20 @@ namespace SmartMirrorWinUniv.Services
 
         private void GetEvents(object state)
         {
-            var data = this.GetRawEvents().Result;
-            var calendar = new CalendarStatus(data);
+            var calendar = this.GetRawEvents().Result;
             this.LatestCalendarEvent?.Invoke(this, calendar);
             this.timer.Change(this.elapseTime, Timeout.Infinite);
         }
 
-        private async Task<string> GetRawEvents()
+        private async Task<CalendarStatus> GetRawEvents()
         {
             //Call Google Calendar API
+            var yesterdayDateTime = DateTime.Now.AddDays(-1);
+            var minDateString = yesterdayDateTime.ToString("O");
+
+            var currentCalendar = new CalendarStatus();
             using (var httpRequest = new Windows.Web.Http.HttpRequestMessage())
             {
-                var yesterdayDateTime = DateTime.Now.AddDays(-1);
-                var minDateString = yesterdayDateTime.ToString("O");
-
                 var client = new Windows.Web.Http.HttpClient();
                 string calendarAPI = $"https://www.googleapis.com/calendar/v3/calendars/kahizer241237@gmail.com/events?timeMin={minDateString}";
 
@@ -137,15 +140,35 @@ namespace SmartMirrorWinUniv.Services
                 httpRequest.Headers.Authorization = new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Bearer", this.accessToken);
 
                 var response = await client.SendRequestAsync(httpRequest);
-
                 if (response.IsSuccessStatusCode)
                 {
                     var listString = await response.Content.ReadAsStringAsync();
-                    return listString;
+                    currentCalendar.AddRawCalendarItems(listString, "personal");
                 }
             }
 
-            return string.Empty;
+            using (var httpRequest = new Windows.Web.Http.HttpRequestMessage())
+            {
+                var client = new Windows.Web.Http.HttpClient();
+                string holydayCalendarAPI =
+                    $"https://www.googleapis.com/calendar/v3/calendars/{this.holydaysCalendarId}/events?timeMin={minDateString}";
+
+                httpRequest.Method = Windows.Web.Http.HttpMethod.Get;
+                httpRequest.RequestUri = new Uri(holydayCalendarAPI);
+                httpRequest.Headers.Authorization =
+                    new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Bearer", this.accessToken);
+
+                var holidayresponse = await client.SendRequestAsync(httpRequest);
+
+                
+                if (holidayresponse.IsSuccessStatusCode)
+                {
+                    var listString = await holidayresponse.Content.ReadAsStringAsync();
+                    currentCalendar.AddRawCalendarItems(listString, "public");
+                }
+            }
+
+            return currentCalendar;
         }
 
         #endregion
