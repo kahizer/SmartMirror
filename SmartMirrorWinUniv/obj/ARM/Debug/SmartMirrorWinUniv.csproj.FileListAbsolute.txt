@@ -245,3 +245,4 @@ C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bi
 C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\System.Net.Http.Extensions.dll
 C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\System.Net.Http.Primitives.dll
 C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Zlib.Portable.dll
+C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\weathericons-regular-webfont.ttf

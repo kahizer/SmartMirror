@@ -18,6 +18,9 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <PackageCertificateKeyFile>SmartMirrorWinUniv_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -98,6 +101,7 @@
     <Compile Include="Concreates\CalendarStatus.cs" />
     <Compile Include="Concreates\CurrentTime.cs" />
     <Compile Include="Concreates\EmailStatus.cs" />
+    <Compile Include="Concreates\GmailServices.cs" />
     <Compile Include="Concreates\NewsModel.cs" />
     <Compile Include="Concreates\QuoteModel.cs" />
     <Compile Include="Concreates\TrafficStatus.cs" />
@@ -111,6 +115,7 @@
     <Compile Include="Services\CalendarServices.cs" />
     <Compile Include="Services\DateTimeServices.cs" />
     <Compile Include="Services\GoogleMapsServices.cs" />
+    <Compile Include="Services\GoogleServices.cs" />
     <Compile Include="Services\MailServices.cs" />
     <Compile Include="Services\NewsServices.cs" />
     <Compile Include="Services\QuoteServices.cs" />
@@ -123,6 +128,9 @@
     </AppxManifest>
     <None Include="client_id.json" />
     <None Include="SmartMirrorWinUniv_TemporaryKey.pfx" />
+    <Content Include="weathericons-regular-webfont.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Default.rd.xml" />

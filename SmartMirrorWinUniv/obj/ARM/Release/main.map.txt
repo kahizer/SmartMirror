@@ -1,0 +1,22 @@
+[ResourceMetadata]
+"ResourceDimensions"		"language-en"
+"ResourceDimensions"		"scale-200"
+"ResourceDimensions"		"language-en-US"
+
+[Files]
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\split.pri"			"resources.pri"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\weathericons-regular-webfont.ttf"			"weathericons-regular-webfont.ttf"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\SmartMirrorWinUniv.exe"			"SmartMirrorWinUniv.exe"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\SmartMirrorWinUniv.dll"			"SmartMirrorWinUniv.dll"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\clrcompression.dll"			"clrcompression.dll"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\_Resources\index.txt"			"_Resources\index.txt"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\_Resources\2.rsrc"			"_Resources\2.rsrc"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\_Resources\1.rsrc"			"_Resources\1.rsrc"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\_Resources\0.rsrc"			"_Resources\0.rsrc"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\Assets\Wide310x150Logo.scale-200.png"			"Assets\Wide310x150Logo.scale-200.png"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\Assets\StoreLogo.png"			"Assets\StoreLogo.png"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\Assets\Square44x44Logo.targetsize-24_altform-unplated.png"			"Assets\Square44x44Logo.targetsize-24_altform-unplated.png"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\Assets\Square44x44Logo.scale-200.png"			"Assets\Square44x44Logo.scale-200.png"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\Assets\Square150x150Logo.scale-200.png"			"Assets\Square150x150Logo.scale-200.png"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\Assets\SplashScreen.scale-200.png"			"Assets\SplashScreen.scale-200.png"
+"C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\obj\ARM\Release\PackageLayout\Assets\LockScreenLogo.scale-200.png"			"Assets\LockScreenLogo.scale-200.png"

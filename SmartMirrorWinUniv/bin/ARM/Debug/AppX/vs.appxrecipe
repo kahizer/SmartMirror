@@ -19,25 +19,25 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>F4F6F52C66568FCD00664C03B2F89C525D19BFD89ABA2EB836B12DA8903EFEE4</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>d72253a6-ba5e-4a73-aec8-85c476ec53df_1.0.0.0_arm__am154zgt9mfp4</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>D19821C521158F4A647389E6CA264BE52E500ED067F1D946CDFF91B675D02329</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>d72253a6-ba5e-4a73-aec8-85c476ec53df_1.0.1.0_arm__am154zgt9mfp4</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>d72253a6-ba5e-4a73-aec8-85c476ec53df_am154zgt9mfp4!App</RegisteredUserModeAppID>
     <RegisteredPackageID>d72253a6-ba5e-4a73-aec8-85c476ec53df</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=j.villanueva</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <RegisteredVersion>1.0.1.0</RegisteredVersion>
     <JitOptimizationSuppressed>False</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-12T02:27:42.589</Modified>
+      <Modified>2017-09-13T00:49:47.522</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\SmartMirrorWinUniv.exe">
       <PackagePath>entrypoint\SmartMirrorWinUniv.exe</PackagePath>
-      <Modified>2017-09-12T02:27:42.271</Modified>
+      <Modified>2017-09-13T00:49:46.936</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\DarkSkyCore\3.0.0\lib\netstandard1.4\DarkSkyCore.dll">
       <PackagePath>DarkSkyCore.dll</PackagePath>
@@ -567,6 +567,10 @@
       <PackagePath>Zlib.Portable.dll</PackagePath>
       <Modified>2015-06-22T16:00:48.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\weathericons-regular-webfont.ttf">
+      <PackagePath>weathericons-regular-webfont.ttf</PackagePath>
+      <Modified>2017-09-12T17:01:17.383</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2017-09-06T20:52:23.961</Modified>
@@ -616,11 +620,11 @@
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-12T02:16:23.887</Modified>
+      <Modified>2017-09-13T00:49:47.346</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\ARM\Debug\Core\SmartMirrorWinUniv.exe">
       <PackagePath>SmartMirrorWinUniv.exe</PackagePath>
-      <Modified>2017-09-12T02:27:42.579</Modified>
+      <Modified>2017-09-13T00:49:47.516</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

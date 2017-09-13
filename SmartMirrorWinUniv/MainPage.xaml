@@ -48,14 +48,14 @@
                 <StackPanel  Orientation="Vertical">
                 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock Text="&#xf050;" Style="{StaticResource TextBlockStyle}" FontFamily="ms-appx:fonts/weathericons-regular-webfont.ttf#Weather Icons"/>
+                        <TextBlock Text="&#xf050;" Style="{StaticResource TextBlockStyle}" FontFamily="weathericons-regular-webfont.ttf#Weather Icons" />
                         <TextBlock Margin="10,0,0,0" Name="WindSpeedTextBlock" Style="{StaticResource TextBlockStyle}" />
-                        <TextBlock Margin="25,0,0,0" Text="&#xf052;" Style="{StaticResource TextBlockStyle}" FontFamily="ms-appx:fonts/weathericons-regular-webfont.ttf#Weather Icons"/>
+                        <TextBlock Margin="25,0,0,0" Text="&#xf052;" Style="{StaticResource TextBlockStyle}" FontFamily="weathericons-regular-webfont.ttf#Weather Icons" />
                         <TextBlock Margin="10,0,0,0" Name="SunsetTimeTextBlock" Style="{StaticResource TextBlockStyle}" />
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock Name="MainIconTextBlock" FontSize="70" FontFamily="ms-appx:fonts/weathericons-regular-webfont.ttf#Weather Icons" Style="{StaticResource TextBlockStyle}"/>
+                        <TextBlock Name="MainIconTextBlock" FontSize="70"  Style="{StaticResource TextBlockStyle}" FontFamily="weathericons-regular-webfont.ttf#Weather Icons"/>
                         <TextBlock Margin="15,0,0,0" Name="TempTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="70" FontWeight="SemiBold"/>
                     </StackPanel>
                     
@@ -63,49 +63,49 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0,35,0,0">
                         <TextBlock Name="DayTextBlock01" Style="{StaticResource TextBlockStyle}" Width="85"/>
-                     <TextBlock Name="IconTextBlock01" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="ms-appx:fonts/weathericons-regular-webfont.ttf#Weather Icons" />
+                     <TextBlock Name="IconTextBlock01" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="weathericons-regular-webfont.ttf#Weather Icons" />
                     <TextBlock Margin="10,0,0,0" Name="HighTempDay01" Style="{StaticResource TextBlockStyle}" Width="60"/>
                         <TextBlock Margin="10,0,0,0" Name="LowTempDay01" Style="{StaticResource TextBlockStyle}" Width="60"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Name="DayTextBlock02" Style="{StaticResource TextBlockStyle}" Width="85"/>
-                    <TextBlock Name="IconTextBlock02" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="ms-appx:fonts/weathericons-regular-webfont.ttf#Weather Icons" />
+                    <TextBlock Name="IconTextBlock02" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="weathericons-regular-webfont.ttf#Weather Icons" />
                     <TextBlock Margin="10,0,0,0" Name="HighTempDay02" Style="{StaticResource TextBlockStyle}" Width="60"/>
                         <TextBlock Margin="10,0,0,0" Name="LowTempDay02" Style="{StaticResource TextBlockStyle}" Width="60"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Name="DayTextBlock03" Style="{StaticResource TextBlockStyle}" Width="85"/>
-                    <TextBlock Name="IconTextBlock03" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="ms-appx:fonts/weathericons-regular-webfont.ttf#Weather Icons"/>
+                    <TextBlock Name="IconTextBlock03" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="weathericons-regular-webfont.ttf#Weather Icons" />
                     <TextBlock Margin="10,0,0,0" Name="HighTempDay03" Style="{StaticResource TextBlockStyle}" Width="60"/>
                         <TextBlock Margin="10,0,0,0" Name="LowTempDay03" Style="{StaticResource TextBlockStyle}" Width="60"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Name="DayTextBlock04" Style="{StaticResource TextBlockStyle}" Width="85"/>
-                    <TextBlock Name="IconTextBlock04" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="ms-appx:fonts/weathericons-regular-webfont.ttf#Weather Icons" />
+                    <TextBlock Name="IconTextBlock04" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="weathericons-regular-webfont.ttf#Weather Icons"  />
                     <TextBlock Margin="10,0,0,0" Name="HighTempDay04" Style="{StaticResource TextBlockStyle}" Width="60"/>
                         <TextBlock Margin="10,0,0,0" Name="LowTempDay04" Style="{StaticResource TextBlockStyle}" Width="60"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Name="DayTextBlock05" Style="{StaticResource TextBlockStyle}" Width="85"/>
-                    <TextBlock Name="IconTextBlock05" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="ms-appx:fonts/weathericons-regular-webfont.ttf#Weather Icons" />
+                    <TextBlock Name="IconTextBlock05" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="weathericons-regular-webfont.ttf#Weather Icons" />
                     <TextBlock Margin="10,0,0,0" Name="HighTempDay05" Style="{StaticResource TextBlockStyle}" Width="60"/>
                         <TextBlock Margin="10,0,0,0" Name="LowTempDay05" Style="{StaticResource TextBlockStyle}" Width="60"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Name="DayTextBlock06" Style="{StaticResource TextBlockStyle}" Width="85"/>
-                    <TextBlock Name="IconTextBlock06" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="ms-appx:fonts/weathericons-regular-webfont.ttf#Weather Icons" />
+                    <TextBlock Name="IconTextBlock06" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="weathericons-regular-webfont.ttf#Weather Icons"  />
                     <TextBlock Margin="10,0,0,0" Name="HighTempDay06" Style="{StaticResource TextBlockStyle}" Width="60"/>
                         <TextBlock Margin="10,0,0,0" Name="LowTempDay06" Style="{StaticResource TextBlockStyle}" Width="60"/>
                     </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Name="DayTextBlock07" Style="{StaticResource TextBlockStyle}" Width="85"/>
-                    <TextBlock Name="IconTextBlock07" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="ms-appx:fonts/weathericons-regular-webfont.ttf#Weather Icons" />
+                    <TextBlock Name="IconTextBlock07" Style="{StaticResource TextBlockStyle}" Width="60" FontFamily="weathericons-regular-webfont.ttf#Weather Icons"  />
                     <TextBlock Margin="10,0,0,0" Name="HighTempDay07" Style="{StaticResource TextBlockStyle}" Width="60"/>
                     <TextBlock Margin="10,0,0,0" Name="LowTempDay07" Style="{StaticResource TextBlockStyle}" Width="60"/>
                 </StackPanel>
