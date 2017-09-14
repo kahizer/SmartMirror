@@ -48,7 +48,7 @@ namespace SmartMirrorWinUniv.Concreates
                     DateTime dueDate = DateTime.Parse(dtString);
                     string title = item.summary;
 
-                    var calendarItem = new CalendarItem { DueDate = dueDate, Title = title, EasyDueDate = this.GetEasyDueDate(dueDate), Type = type};
+                    var calendarItem = new CalendarItem { DueDate = dueDate, Title = title, EasyDueDate = this.GetEasyDueDate(dueDate), Type = type, IconPath = this.GetIconPath(type)};
                     this.CalenderItems.Add(calendarItem);
                 }
                 catch (Exception ex)
@@ -65,6 +65,13 @@ namespace SmartMirrorWinUniv.Concreates
 
         #region Private Methods
 
+        private string GetIconPath(string type)
+        {
+            if (type.Equals("personal")) return $"Resources/calendar-24.png";
+
+            return $"Resources/public-calendar-24.png";
+        }
+
         private string GetEasyDueDate(DateTime dueDate)
         {
             int days = dueDate.Subtract(DateTime.Now).Days;
@@ -72,16 +79,17 @@ namespace SmartMirrorWinUniv.Concreates
             if (days > 360)
             {
                 var years = days / 360;
-                return $"{years} years";
+                return $"in {years} years";
             }
             else if (days > 30)
             {
                 var months = days / 30;
-                return $"{months} months";
+
+                return months == 1 ? $"in {months} month" : $"in {months} months";
             }
             else if(days > 1)
             {
-                return $"{days} days";
+                return $"in {days} days";
             }
             else if (days == 1)
             {
@@ -94,7 +102,6 @@ namespace SmartMirrorWinUniv.Concreates
         }
 
         #endregion
-
     }
 
     public class CalendarItem
@@ -103,6 +110,7 @@ namespace SmartMirrorWinUniv.Concreates
         public DateTime DueDate { get; set; }
         public string EasyDueDate { get; set; }
         public string Type { get; set; }
+        public string IconPath { get; set; }
 
     }
 

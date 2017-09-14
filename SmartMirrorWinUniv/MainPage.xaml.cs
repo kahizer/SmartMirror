@@ -19,6 +19,7 @@ using System.ServiceModel;
 namespace SmartMirrorWinUniv
 {
     using Windows.UI.Core;
+    using Windows.UI.Xaml.Media.Imaging;
 
     using SmartMirrorWinUniv.Services;
     using SmartMirrorWinUniv.Concreates;
@@ -39,10 +40,9 @@ namespace SmartMirrorWinUniv
         public MainPage()
         {
             this.InitializeComponent();
-            //this.DataContext = this;
 
             this.serviceManager = new ServiceManager();
-            //this.serviceManager.LatestEmailsEvent += ServiceManagerOnLatestEmailsEvent;
+            this.serviceManager.LatestEmailsEvent += this.ServiceManagerOnLatestEmailsEvent;
             this.serviceManager.CalendarStatusEvent += this.UpdateLatestCalendarEventsDisplay;
             this.serviceManager.TimerUpdateEvent += this.UpdaCurrentTimeDisplay;
             this.serviceManager.WeatherUpdateEvent += this.UpdateWeatherStatusDisplay;
@@ -53,12 +53,72 @@ namespace SmartMirrorWinUniv
 
         private void ServiceManagerOnLatestEmailsEvent(object sender, EmailStatus emailStatus)
         {
-            var meials = emailStatus.EmailMessages;
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                () =>
+                    {
+                        this.MailSubjectTextBlock00.Text = emailStatus.EmailMessages[0].Subject;
+                        this.MailSenderTextBlock00.Text = emailStatus.EmailMessages[0].From;
+                        this.MailSnipTextBlock00.Text = emailStatus.EmailMessages[0].Snippet;
+
+                        this.MailSubjectTextBlock01.Text = emailStatus.EmailMessages[1].Subject;
+                        this.MailSenderTextBlock01.Text = emailStatus.EmailMessages[1].From;
+                        this.MailSnipTextBlock01.Text = emailStatus.EmailMessages[1].Snippet;
+
+                        this.MailSubjectTextBlock02.Text = emailStatus.EmailMessages[2].Subject;
+                        this.MailSenderTextBlock02.Text = emailStatus.EmailMessages[2].From;
+                        this.MailSnipTextBlock02.Text = emailStatus.EmailMessages[2].Snippet;
+
+                        this.MailSubjectTextBlock03.Text = emailStatus.EmailMessages[3].Subject;
+                        this.MailSenderTextBlock03.Text = emailStatus.EmailMessages[3].From;
+                        this.MailSnipTextBlock03.Text = emailStatus.EmailMessages[3].Snippet;
+
+                        this.MailSubjectTextBlock04.Text = emailStatus.EmailMessages[3].Subject;
+                        this.MailSenderTextBlock04.Text = emailStatus.EmailMessages[3].From;
+                        this.MailSnipTextBlock04.Text = emailStatus.EmailMessages[3].Snippet;
+
+                    }
+            );
         }
 
         private void UpdateLatestCalendarEventsDisplay(object sender, CalendarStatus calendarStatus)
         {
-            //var cs = calendarStatus;
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                () =>
+                    {
+                        this.CalendarSummaryTextBlock00.Text = calendarStatus.CalenderItems[0].Title;
+                        this.CalendarDueTextBlock00.Text = calendarStatus.CalenderItems[0].EasyDueDate;
+
+                        this.CalendarSummaryTextBlock01.Text = calendarStatus.CalenderItems[1].Title;
+                        this.CalendarDueTextBlock01.Text = calendarStatus.CalenderItems[1].EasyDueDate;
+
+                        this.CalendarSummaryTextBlock02.Text = calendarStatus.CalenderItems[2].Title;
+                        this.CalendarDueTextBlock02.Text = calendarStatus.CalenderItems[2].EasyDueDate;
+
+                        this.CalendarSummaryTextBlock03.Text = calendarStatus.CalenderItems[3].Title;
+                        this.CalendarDueTextBlock03.Text = calendarStatus.CalenderItems[3].EasyDueDate;
+
+                        this.CalendarSummaryTextBlock04.Text = calendarStatus.CalenderItems[4].Title;
+                        this.CalendarDueTextBlock04.Text = calendarStatus.CalenderItems[4].EasyDueDate;
+
+                        this.CalendarSummaryTextBlock05.Text = calendarStatus.CalenderItems[5].Title;
+                        this.CalendarDueTextBlock05.Text = calendarStatus.CalenderItems[5].EasyDueDate;
+
+                        this.CalendarSummaryTextBlock06.Text = calendarStatus.CalenderItems[6].Title;
+                        this.CalendarDueTextBlock06.Text = calendarStatus.CalenderItems[6].EasyDueDate;
+
+                        this.CalendarSummaryTextBlock07.Text = calendarStatus.CalenderItems[7].Title;
+                        this.CalendarDueTextBlock07.Text = calendarStatus.CalenderItems[7].EasyDueDate;
+
+                        this.CalendarSummaryTextBlock08.Text = calendarStatus.CalenderItems[8].Title;
+                        this.CalendarDueTextBlock08.Text = calendarStatus.CalenderItems[8].EasyDueDate;
+
+                        this.CalendarSummaryTextBlock09.Text = calendarStatus.CalenderItems[9].Title;
+                        this.CalendarDueTextBlock09.Text = calendarStatus.CalenderItems[9].EasyDueDate;
+
+                    }
+            );
         }
 
         private void UpdateLatestNewsDisplay(object sender, NewsModel newsModel)
@@ -67,15 +127,15 @@ namespace SmartMirrorWinUniv
                 CoreDispatcherPriority.Normal,
                 () =>
                     {
-                        this.NewsTextBlock01.Text = "•  " + newsModel.LatestNews[0].Title;
-                        this.NewsTextBlock02.Text = "•  " + newsModel.LatestNews[1].Title;
-                        this.NewsTextBlock03.Text = "•  " + newsModel.LatestNews[2].Title;
-                        this.NewsTextBlock04.Text = "•  " + newsModel.LatestNews[3].Title;
-                        this.NewsTextBlock05.Text = "•  " + newsModel.LatestNews[4].Title;
-                        this.NewsTextBlock06.Text = "•  " + newsModel.LatestNews[5].Title;
-                        this.NewsTextBlock07.Text = "•  " + newsModel.LatestNews[6].Title;
-                        this.NewsTextBlock08.Text = "•  " + newsModel.LatestNews[7].Title;
-                        this.NewsTextBlock09.Text = "•  " + newsModel.LatestNews[8].Title;
+                        this.NewsTextBlock01.Text = newsModel.LatestNews[0].Title;
+                        this.NewsTextBlock02.Text = newsModel.LatestNews[1].Title;
+                        this.NewsTextBlock03.Text = newsModel.LatestNews[2].Title;
+                        this.NewsTextBlock04.Text = newsModel.LatestNews[3].Title;
+                        this.NewsTextBlock05.Text = newsModel.LatestNews[4].Title;
+                        this.NewsTextBlock06.Text = newsModel.LatestNews[5].Title;
+                        this.NewsTextBlock07.Text = newsModel.LatestNews[6].Title;
+                        this.NewsTextBlock08.Text = newsModel.LatestNews[7].Title;
+                        this.NewsTextBlock09.Text = newsModel.LatestNews[8].Title;
                         
                     }
             );

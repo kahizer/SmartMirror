@@ -10,7 +10,7 @@
 
         private Timer timer;
 
-        private int elapseTime = 6000; //every 10 minutes
+        private int elapseTime = 60000; //every 10 minutes
 
         private string accessToken = string.Empty;
 

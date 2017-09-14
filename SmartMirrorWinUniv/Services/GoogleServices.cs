@@ -47,7 +47,16 @@ namespace SmartMirrorWinUniv.Services
 
         #endregion
 
-        #region
+        #region Events
+
+        #region Public Events
+
+        public event EventHandler<CalendarStatus> LatestCalendarEvent;
+
+        public event EventHandler<EmailStatus> LatestEmailsEvent;
+
+        #endregion
+
         #endregion
 
         #region Private Method
@@ -95,7 +104,10 @@ namespace SmartMirrorWinUniv.Services
                 this.gotAccessToken = true;
 
                 this.GMailServices = new GmailServices(this.accessToken);
-                //this.CalendarServices = new CalendarServices(this.accessToken);
+                this.GMailServices.LatestEmailsEvent += (sender, status) => { this.LatestEmailsEvent?.Invoke(this, status); };
+
+                this.CalendarServices = new CalendarServices(this.accessToken);
+                this.CalendarServices.LatestCalendarEvent += (sender, status) => { this.LatestCalendarEvent?.Invoke(this, status);}; 
 
             }
         }

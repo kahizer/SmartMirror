@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SmartMirrorWinUniv
+﻿namespace SmartMirrorWinUniv
 {
-    using Google.Apis.Auth.OAuth2;
-
+    using System;
     using SmartMirrorWinUniv.Concreates;
     using SmartMirrorWinUniv.Services;
 
@@ -27,16 +20,12 @@ namespace SmartMirrorWinUniv
 
         private CalendarServices calendarServices;
 
-        //private CalendarApiService calendarServices;
-
         private MailServices mailServices;
 
         private GoogleServices googleServices;
 
         private float lat = 37.621998f;
         private float logt = -122.073551f;
-
-        //public static UserCredential GoogleCredential = null;
 
         #endregion
 
@@ -45,28 +34,23 @@ namespace SmartMirrorWinUniv
         public ServiceManager()
         {
             this.googleServices = new GoogleServices();
-            //this.googleServices.CalendarServices.LatestCalendarEvent += (sender, status) => { this.CalendarStatusEvent?.Invoke(this, status); };
+            this.googleServices.LatestCalendarEvent += (sender, calendar) => { this.CalendarStatusEvent?.Invoke(this, calendar); };
+            this.googleServices.LatestEmailsEvent += (sender, mail) => { this.LatestEmailsEvent?.Invoke(this, mail); };
 
-            //this.mailServices = new MailServices();
-            //this.mailServices.LatestEmailsEvent += (sender, status) => { this.LatestEmailsEvent?.Invoke(this, status);};
+            this.googleMapsServices = new GoogleMapsServices();
+            this.googleMapsServices.TrafficUpdateEvent += (sender, traffic) => { this.TrafficUpdateEvent?.Invoke(this, traffic); };
 
-            //this.calendarServices = new CalendarServices();
-            //this.calendarServices.LatestCalendarEvent += (sender, status) => { this.CalendarStatusEvent?.Invoke(this, status); };
+            this.newsServices = new NewsServices();
+            this.newsServices.LatestNewsEvent += (sender, newsmodel) => { this.LatestNewsEvent?.Invoke(this, newsmodel); };
 
-            //this.googleMapsServices = new GoogleMapsServices();
-            //this.googleMapsServices.TrafficUpdateEvent += (sender, status) => { this.TrafficUpdateEvent?.Invoke(this, status); };
+            this.weatherServices = new WeatherServices(this.lat, this.logt);
+            this.weatherServices.WeatherUpdateEvent += (sender, weather) => { this.WeatherUpdateEvent?.Invoke(this, weather); };
 
-            //this.newsServices = new NewsServices();
-            //this.newsServices.LatestNewsEvent += (sender, model) => { this.LatestNewsEvent?.Invoke(this, model); };
+            this.quoteServices = new QuoteServices();
+            this.quoteServices.QuoteUpdateEvent += (sender, quote) => { this.QuoteUpdateEvent?.Invoke(this, quote); };
 
-            //this.weatherServices = new WeatherServices(this.lat, this.logt);
-            //this.weatherServices.WeatherUpdateEvent += (sender, status) => { this.WeatherUpdateEvent?.Invoke(this, status); };
-
-            //this.quoteServices = new QuoteServices();
-            //this.quoteServices.QuoteUpdateEvent += (sender, model) => { this.QuoteUpdateEvent?.Invoke(this, model); };
-
-            //this.dateTimeServices = new DateTimeServices();
-            //this.dateTimeServices.TimerUpdateEvent += (sender, time) => { this.TimerUpdateEvent?.Invoke(this, time); };
+            this.dateTimeServices = new DateTimeServices();
+            this.dateTimeServices.TimerUpdateEvent += (sender, time) => { this.TimerUpdateEvent?.Invoke(this, time); };
         }
 
         #endregion

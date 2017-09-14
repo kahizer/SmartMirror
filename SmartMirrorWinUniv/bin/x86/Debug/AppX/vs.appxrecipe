@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-13T03:34:38.008</Modified>
+      <Modified>2017-09-14T03:52:00.360</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\SmartMirrorWinUniv.exe">
       <PackagePath>entrypoint\SmartMirrorWinUniv.exe</PackagePath>
-      <Modified>2017-09-13T03:34:35.680</Modified>
+      <Modified>2017-09-14T03:51:59.719</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\DarkSkyCore\3.0.0\lib\netstandard1.4\DarkSkyCore.dll">
       <PackagePath>DarkSkyCore.dll</PackagePath>
@@ -571,13 +571,41 @@
       <PackagePath>Zlib.Portable.dll</PackagePath>
       <Modified>2015-06-22T16:00:48.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\weathericons-regular-webfont.ttf">
-      <PackagePath>weathericons-regular-webfont.ttf</PackagePath>
-      <Modified>2017-09-12T17:01:17.383</Modified>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Resources\calendar-24.png">
+      <PackagePath>Resources\calendar-24.png</PackagePath>
+      <Modified>2017-09-14T01:58:51.893</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2017-09-06T20:52:23.961</Modified>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Resources\car-default.png">
+      <PackagePath>Resources\car-default.png</PackagePath>
+      <Modified>2017-09-14T00:59:22.856</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Resources\email-5-32.png">
+      <PackagePath>Resources\email-5-32.png</PackagePath>
+      <Modified>2017-09-14T01:42:29.147</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Resources\google-news-24.png">
+      <PackagePath>Resources\google-news-24.png</PackagePath>
+      <Modified>2017-09-14T03:35:52.768</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Resources\mail-24.png">
+      <PackagePath>Resources\mail-24.png</PackagePath>
+      <Modified>2017-09-14T01:49:21.383</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Resources\News-Icon-ipad.png">
+      <PackagePath>Resources\News-Icon-ipad.png</PackagePath>
+      <Modified>2017-09-14T03:48:02.271</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Resources\news02.png">
+      <PackagePath>Resources\news02.png</PackagePath>
+      <Modified>2017-09-14T03:49:41.638</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Resources\public-calendar-24.png">
+      <PackagePath>Resources\public-calendar-24.png</PackagePath>
+      <Modified>2017-09-14T03:08:33.584</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Resources\white-car-64.png">
+      <PackagePath>Resources\white-car-64.png</PackagePath>
+      <Modified>2017-09-14T00:52:48.581</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -613,9 +641,17 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-09-06T20:52:23.955</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\weathericons-regular-webfont.ttf">
+      <PackagePath>weathericons-regular-webfont.ttf</PackagePath>
+      <Modified>2017-09-12T17:01:17.383</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2017-09-06T20:52:23.961</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\SmartMirrorWinUniv.xr.xml">
       <PackagePath>SmartMirrorWinUniv.xr.xml</PackagePath>
-      <Modified>2017-09-06T20:52:24.819</Modified>
+      <Modified>2017-09-14T03:41:45.982</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -624,11 +660,11 @@
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-13T03:34:37.687</Modified>
+      <Modified>2017-09-14T03:52:00.137</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\Core\SmartMirrorWinUniv.exe">
       <PackagePath>SmartMirrorWinUniv.exe</PackagePath>
-      <Modified>2017-09-13T03:34:37.999</Modified>
+      <Modified>2017-09-14T03:52:00.355</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

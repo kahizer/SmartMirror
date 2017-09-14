@@ -5,7 +5,7 @@
     xmlns:local="using:SmartMirrorWinUniv"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Height="1800" Width="1050">
+    mc:Ignorable="d" Height="1800" Width="1200">
     <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">-->
         <Grid Background="Black">
         <Grid.Resources>
@@ -18,11 +18,53 @@
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="TextWrapping" Value="Wrap"/>
                 <Setter Property="Margin" Value="0,15,0,0"/>
+            </Style>
+            <Style TargetType="TextBlock" x:Key="MailTextBlockStyle">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="Width" Value="225"/>
+                <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="10,0,0,0"/>
+            </Style>
+            <Style TargetType="TextBlock" x:Key="MailSenderTextBlockStyle" BasedOn="{StaticResource MailTextBlockStyle}">
+                <Setter Property="Width" Value="125"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="Margin" Value="10,0,0,0"/>
                 
             </Style>
+            <Style TargetType="TextBlock" x:Key="MailSnipTextBlockStyle" BasedOn="{StaticResource MailTextBlockStyle}">
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Width" Value="350"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="MaxLines" Value="2"/>
+            </Style>
+            
+            <Style TargetType="TextBlock" x:Key="CalendarSummaryTextBlockStyle">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="Width" Value="200"/>
+                <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="10,0,0,0"/>
+                <Setter Property="VerticalAlignment" Value="Bottom"/>
+            </Style>
+
+            <Style TargetType="TextBlock" x:Key="CalendarDueTextBlockStyle">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="Margin" Value="10,0,0,0"/>
+                <Setter Property="VerticalAlignment" Value="Bottom"/>
+            </Style>
+
         </Grid.Resources>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="350"/>
             <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -32,13 +74,123 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
-            <TextBlock x:ConnectionId='45'  Name="DayInfoTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="28"/>
-            <TextBlock x:ConnectionId='46'  Name="CurrentTimeTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="60"/>
-            <TextBlock Margin="0,50,0,0" Style="{StaticResource TextBlockStyle}" Text="Traffic Information" FontWeight="Bold"/>
-            <TextBlock x:ConnectionId='47' Name="TrafficInformationTextBlock" Style="{StaticResource TextBlockStyle}" FontWeight="Bold"/>
-            <TextBlock x:ConnectionId='48' Name="ArrivalTimeTextBlock" Style="{StaticResource TextBlockStyle}"/>
-        </StackPanel>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical">
+                <!--Datetime informartion-->
+                <TextBlock x:ConnectionId='45'  Name="DayInfoTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="28"/>
+                <TextBlock x:ConnectionId='46'  Name="CurrentTimeTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="60"/>
+                
+                <!--Traffic informartion-->
+                <TextBlock Margin="0,50,0,0" Style="{StaticResource TextBlockStyle}" Text="Traffic Information" FontWeight="Bold" TextDecorations="Underline"/>
+                <StackPanel Orientation="Horizontal" >
+                    <Image Source="Resources/car-default.png" Height="35" Width="35" VerticalAlignment="Bottom"/>
+                    <TextBlock x:ConnectionId='93' Margin="10,0,0,0" Text="35 min (14 mi)"  Name="TrafficInformationTextBlock" Style="{StaticResource TextBlockStyle}" FontWeight="Bold" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="10,0,0,0" Text="&#xf0cc;" Style="{StaticResource TextBlockStyle}" FontFamily="weathericons-regular-webfont.ttf#Weather Icons" />
+                    <TextBlock x:ConnectionId='92' Margin="10,0,0,0" Name="ArrivalTimeTextBlock" Style="{StaticResource TextBlockStyle}" Text="ETA 15 mins"/>
+                </StackPanel>
+
+                <!--Mail informartion-->
+                <StackPanel Orientation="Horizontal" Margin="0,45,0,0">
+                    <Image Source="Resources/mail-24.png" Width="20"/>
+                    <TextBlock x:ConnectionId='90' Name="MailSenderTextBlock00" Text="Apple new trending issues" Style="{StaticResource MailSenderTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='91' Name="MailSubjectTextBlock00" Text="Big aannouncements from our september event" Style="{StaticResource MailTextBlockStyle}"/>
+                </StackPanel>
+                <TextBlock x:ConnectionId='47' Name="MailSnipTextBlock00" Text="A monumental day for iPhone, Apple Watch, and Apple TV." Style="{StaticResource MailSnipTextBlockStyle}"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Image Source="Resources/mail-24.png"  Width="20"/>
+                    <TextBlock x:ConnectionId='88' Name="MailSenderTextBlock01" Text="Apple new trending issues" Style="{StaticResource MailSenderTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='89' Name="MailSubjectTextBlock01" Text="Big aannouncements from our september event" Style="{StaticResource MailTextBlockStyle}"/>
+                </StackPanel>
+                <TextBlock x:ConnectionId='48' Name="MailSnipTextBlock01" Text="A monumental day for iPhone, Apple Watch, and Apple TV." Style="{StaticResource MailSnipTextBlockStyle}"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Image Source="Resources/mail-24.png"  Width="20"/>
+                    <TextBlock x:ConnectionId='86' Name="MailSenderTextBlock02" Text="Apple new trending issues" Style="{StaticResource MailSenderTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='87' Name="MailSubjectTextBlock02" Text="Big aannouncements from our september event" Style="{StaticResource MailTextBlockStyle}"/>
+                </StackPanel>
+                <TextBlock x:ConnectionId='49' Name="MailSnipTextBlock02" Text="A monumental day for iPhone, Apple Watch, and Apple TV." Style="{StaticResource MailSnipTextBlockStyle}"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Image Source="Resources/mail-24.png"  Width="20"/>
+                    <TextBlock x:ConnectionId='84' Name="MailSenderTextBlock03" Text="Apple new trending issues" Style="{StaticResource MailSenderTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='85' Name="MailSubjectTextBlock03" Text="Big aannouncements from our september event" Style="{StaticResource MailTextBlockStyle}"/>
+                </StackPanel>
+                <TextBlock x:ConnectionId='50' Name="MailSnipTextBlock03" Text="A monumental day for iPhone, Apple Watch, and Apple TV." Style="{StaticResource MailSnipTextBlockStyle}"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Image Source="Resources/mail-24.png"  Width="20"/>
+                    <TextBlock x:ConnectionId='82' Name="MailSenderTextBlock04" Text="Apple new trending issues" Style="{StaticResource MailSenderTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='83' Name="MailSubjectTextBlock04" Text="Big aannouncements from our september event" Style="{StaticResource MailTextBlockStyle}"/>
+                </StackPanel>
+                <TextBlock x:ConnectionId='51' Name="MailSnipTextBlock04" Text="A monumental day for iPhone, Apple Watch, and Apple TV." Style="{StaticResource MailSnipTextBlockStyle}"/>
+
+                <!--Calendar Information-->
+                <StackPanel Orientation="Horizontal" Margin="0,45,0,0">
+                    <Image x:ConnectionId='79' Name="CalendarIcon00" Source="Resources/calendar-24.png" Width="20"/>
+                    <TextBlock x:ConnectionId='80' Name="CalendarSummaryTextBlock00" Text="Doctor appoinment" Style="{StaticResource CalendarSummaryTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='81' Name="CalendarDueTextBlock00" Text="in 28 days" Style="{StaticResource CalendarDueTextBlockStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Image x:ConnectionId='76' Name="CalendarIcon01" Source="Resources/calendar-24.png" Width="20"/>
+                    <TextBlock x:ConnectionId='77' Name="CalendarSummaryTextBlock01" Text="Doctor appoinment" Style="{StaticResource CalendarSummaryTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='78' Name="CalendarDueTextBlock01" Text="in 28 days" Style="{StaticResource CalendarDueTextBlockStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Image x:ConnectionId='73' Name="CalendarIcon02" Source="Resources/calendar-24.png" Width="20"/>
+                    <TextBlock x:ConnectionId='74' Name="CalendarSummaryTextBlock02" Text="Doctor appoinment" Style="{StaticResource CalendarSummaryTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='75' Name="CalendarDueTextBlock02" Text="in 28 days" Style="{StaticResource CalendarDueTextBlockStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Image x:ConnectionId='70' Name="CalendarIcon03" Source="Resources/calendar-24.png" Width="20"/>
+                    <TextBlock x:ConnectionId='71' Name="CalendarSummaryTextBlock03" Text="Doctor appoinment" Style="{StaticResource CalendarSummaryTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='72' Name="CalendarDueTextBlock03" Text="in 28 days" Style="{StaticResource CalendarDueTextBlockStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Image x:ConnectionId='67' Name="CalendarIcon04" Source="Resources/calendar-24.png" Width="20"/>
+                    <TextBlock x:ConnectionId='68' Name="CalendarSummaryTextBlock04" Text="Doctor appoinment" Style="{StaticResource CalendarSummaryTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='69' Name="CalendarDueTextBlock04" Text="in 28 days" Style="{StaticResource CalendarDueTextBlockStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Image x:ConnectionId='64' Name="CalendarIcon05" Source="Resources/calendar-24.png" Width="20"/>
+                    <TextBlock x:ConnectionId='65' Name="CalendarSummaryTextBlock05" Text="Doctor appoinment" Style="{StaticResource CalendarSummaryTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='66' Name="CalendarDueTextBlock05" Text="in 28 days" Style="{StaticResource CalendarDueTextBlockStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Image x:ConnectionId='61' Name="CalendarIcon06" Source="Resources/calendar-24.png"  Width="20" VerticalAlignment="Center"/>
+                    <TextBlock x:ConnectionId='62' Name="CalendarSummaryTextBlock06" Text="Doctor appoinment" Style="{StaticResource CalendarSummaryTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='63' Name="CalendarDueTextBlock06" Text="in 28 days" Style="{StaticResource CalendarDueTextBlockStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Image x:ConnectionId='58' Name="CalendarIcon07" Source="Resources/calendar-24.png"  Width="20" VerticalAlignment="Center"/>
+                    <TextBlock x:ConnectionId='59' Name="CalendarSummaryTextBlock07" Text="Doctor appoinment" Style="{StaticResource CalendarSummaryTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='60' Name="CalendarDueTextBlock07" Text="in 28 days" Style="{StaticResource CalendarDueTextBlockStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Image x:ConnectionId='55' Name="CalendarIcon08" Source="Resources/calendar-24.png"  Width="20" VerticalAlignment="Center"/>
+                    <TextBlock x:ConnectionId='56' Name="CalendarSummaryTextBlock08" Text="Doctor appoinment" Style="{StaticResource CalendarSummaryTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='57' Name="CalendarDueTextBlock08" Text="in 28 days" Style="{StaticResource CalendarDueTextBlockStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Image x:ConnectionId='52' Name="CalendarIcon09" Source="Resources/calendar-24.png"   Width="20" VerticalAlignment="Center"/>
+                    <TextBlock x:ConnectionId='53' Name="CalendarSummaryTextBlock09" Text="Doctor appoinment" Style="{StaticResource CalendarSummaryTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='54' Name="CalendarDueTextBlock09" Text="in 28 days" Style="{StaticResource CalendarDueTextBlockStyle}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+            
+       
 
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
             <TextBlock  Style="{StaticResource TextBlockStyle}" Margin="20,10,0,0" FontSize="25" Text="Hello J"/>
@@ -58,6 +210,7 @@
                         <TextBlock x:ConnectionId='41' Name="MainIconTextBlock" FontSize="70"  Style="{StaticResource TextBlockStyle}" FontFamily="weathericons-regular-webfont.ttf#Weather Icons"/>
                         <TextBlock x:ConnectionId='42' Margin="15,0,0,0" Name="TempTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="70" FontWeight="SemiBold"/>
                     </StackPanel>
+                    
                     
                     <TextBlock x:ConnectionId='3' Name="DetailedSumaryTextBlock" Style="{StaticResource TextBlockStyle}" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center"/>
 
@@ -111,17 +264,61 @@
                 </StackPanel>
 
                 <!-- News -->
+                    
+
+                    
                 <TextBlock Margin="0,175,15,0" Style="{StaticResource NewsTextBlockStyle}" Text="                           Trending News" 
                            TextDecorations="Underline" HorizontalAlignment="Right" FontWeight="SemiBold"/>
-                <TextBlock x:ConnectionId='4' Margin="0,8,0,0" Name="NewsTextBlock01" Style="{StaticResource NewsTextBlockStyle}"/>
-                <TextBlock x:ConnectionId='5' Name="NewsTextBlock02" Style="{StaticResource NewsTextBlockStyle}"/>
-                <TextBlock x:ConnectionId='6' Name="NewsTextBlock03" Style="{StaticResource NewsTextBlockStyle}"/>
-                <TextBlock x:ConnectionId='7' Name="NewsTextBlock04" Style="{StaticResource NewsTextBlockStyle}"/>
-                <TextBlock x:ConnectionId='8' Name="NewsTextBlock05" Style="{StaticResource NewsTextBlockStyle}"/>
-                <TextBlock x:ConnectionId='9' Name="NewsTextBlock06" Style="{StaticResource NewsTextBlockStyle}"/>
-                <TextBlock x:ConnectionId='10' Name="NewsTextBlock07" Style="{StaticResource NewsTextBlockStyle}"/>
-                <TextBlock x:ConnectionId='11' Name="NewsTextBlock08" Style="{StaticResource NewsTextBlockStyle}"/>
-                <TextBlock x:ConnectionId='12' Name="NewsTextBlock09" Style="{StaticResource NewsTextBlockStyle}"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/news02.png" Width="28" />
+                    <TextBlock x:ConnectionId='12' Margin="0,8,0,0" Name="NewsTextBlock01" Style="{StaticResource NewsTextBlockStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/news02.png" Width="28" />
+                    <TextBlock x:ConnectionId='11' Margin="0,8,0,0" Name="NewsTextBlock02" Style="{StaticResource NewsTextBlockStyle}"/>
+                </StackPanel>
+
+
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/news02.png" Width="28" />
+                    <TextBlock x:ConnectionId='10' Margin="0,8,0,0" Name="NewsTextBlock03" Style="{StaticResource NewsTextBlockStyle}"/>
+                    </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/news02.png" Width="28" />
+                    <TextBlock x:ConnectionId='9' Margin="0,8,0,0" Name="NewsTextBlock04" Style="{StaticResource NewsTextBlockStyle}"/>
+                </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/news02.png" Width="28" />
+                    <TextBlock x:ConnectionId='8' Margin="0,8,0,0" Name="NewsTextBlock05" Style="{StaticResource NewsTextBlockStyle}"/>
+                    </StackPanel>
+
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/news02.png" Width="28" />
+                    <TextBlock x:ConnectionId='7' Margin="0,8,0,0" Name="NewsTextBlock06" Style="{StaticResource NewsTextBlockStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/news02.png" Width="28" />
+                    <TextBlock x:ConnectionId='6' Margin="0,8,0,0" Name="NewsTextBlock07" Style="{StaticResource NewsTextBlockStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/news02.png" Width="28" />
+                    <TextBlock x:ConnectionId='5' Margin="0,8,0,0" Name="NewsTextBlock08" Style="{StaticResource NewsTextBlockStyle}"/>
+                </StackPanel>
+
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/news02.png" Width="28" />
+                    <TextBlock x:ConnectionId='4' Margin="0,8,0,0" Name="NewsTextBlock09" Style="{StaticResource NewsTextBlockStyle}"/>
+                </StackPanel>
+
 
             </StackPanel>
             </Grid>
