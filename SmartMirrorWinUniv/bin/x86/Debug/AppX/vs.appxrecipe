@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-14T03:52:00.360</Modified>
+      <Modified>2017-09-15T01:54:48.351</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\SmartMirrorWinUniv.exe">
       <PackagePath>entrypoint\SmartMirrorWinUniv.exe</PackagePath>
-      <Modified>2017-09-14T03:51:59.719</Modified>
+      <Modified>2017-09-15T01:54:47.767</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\.nuget\packages\DarkSkyCore\3.0.0\lib\netstandard1.4\DarkSkyCore.dll">
       <PackagePath>DarkSkyCore.dll</PackagePath>
@@ -651,7 +651,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\SmartMirrorWinUniv.xr.xml">
       <PackagePath>SmartMirrorWinUniv.xr.xml</PackagePath>
-      <Modified>2017-09-14T03:41:45.982</Modified>
+      <Modified>2017-09-15T01:54:47.545</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -660,11 +660,11 @@
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-09-14T03:52:00.137</Modified>
+      <Modified>2017-09-15T01:54:48.160</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\j.villanueva\Source\Repos\SmartMirror\SmartMirror\SmartMirrorWinUniv\bin\x86\Debug\Core\SmartMirrorWinUniv.exe">
       <PackagePath>SmartMirrorWinUniv.exe</PackagePath>
-      <Modified>2017-09-14T03:52:00.355</Modified>
+      <Modified>2017-09-15T01:54:48.347</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

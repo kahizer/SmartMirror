@@ -132,27 +132,29 @@ namespace SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[9];
-            _typeNameTable[0] = "SmartMirrorWinUniv.MainPage";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "SmartMirrorWinUniv.Concreates.CurrentTime";
-            _typeNameTable[4] = "Object";
-            _typeNameTable[5] = "SmartMirrorWinUniv.Concreates.NewsModel";
-            _typeNameTable[6] = "SmartMirrorWinUniv.Concreates.QuoteModel";
-            _typeNameTable[7] = "SmartMirrorWinUniv.Concreates.TrafficStatus";
-            _typeNameTable[8] = "SmartMirrorWinUniv.Concreates.WeatherStatus";
+            _typeNameTable = new string[10];
+            _typeNameTable[0] = "SmartMirrorWinUniv.CalendarIconValueConverter";
+            _typeNameTable[1] = "Object";
+            _typeNameTable[2] = "SmartMirrorWinUniv.MainPage";
+            _typeNameTable[3] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[4] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[5] = "SmartMirrorWinUniv.Concreates.CurrentTime";
+            _typeNameTable[6] = "SmartMirrorWinUniv.Concreates.NewsModel";
+            _typeNameTable[7] = "SmartMirrorWinUniv.Concreates.QuoteModel";
+            _typeNameTable[8] = "SmartMirrorWinUniv.Concreates.TrafficStatus";
+            _typeNameTable[9] = "SmartMirrorWinUniv.Concreates.WeatherStatus";
 
-            _typeTable = new global::System.Type[9];
-            _typeTable[0] = typeof(global::SmartMirrorWinUniv.MainPage);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::SmartMirrorWinUniv.Concreates.CurrentTime);
-            _typeTable[4] = typeof(global::System.Object);
-            _typeTable[5] = typeof(global::SmartMirrorWinUniv.Concreates.NewsModel);
-            _typeTable[6] = typeof(global::SmartMirrorWinUniv.Concreates.QuoteModel);
-            _typeTable[7] = typeof(global::SmartMirrorWinUniv.Concreates.TrafficStatus);
-            _typeTable[8] = typeof(global::SmartMirrorWinUniv.Concreates.WeatherStatus);
+            _typeTable = new global::System.Type[10];
+            _typeTable[0] = typeof(global::SmartMirrorWinUniv.CalendarIconValueConverter);
+            _typeTable[1] = typeof(global::System.Object);
+            _typeTable[2] = typeof(global::SmartMirrorWinUniv.MainPage);
+            _typeTable[3] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[5] = typeof(global::SmartMirrorWinUniv.Concreates.CurrentTime);
+            _typeTable[6] = typeof(global::SmartMirrorWinUniv.Concreates.NewsModel);
+            _typeTable[7] = typeof(global::SmartMirrorWinUniv.Concreates.QuoteModel);
+            _typeTable[8] = typeof(global::SmartMirrorWinUniv.Concreates.TrafficStatus);
+            _typeTable[9] = typeof(global::SmartMirrorWinUniv.Concreates.WeatherStatus);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -187,7 +189,8 @@ namespace SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_MainPage() { return new global::SmartMirrorWinUniv.MainPage(); }
+        private object Activate_0_CalendarIconValueConverter() { return new global::SmartMirrorWinUniv.CalendarIconValueConverter(); }
+        private object Activate_2_MainPage() { return new global::SmartMirrorWinUniv.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -199,9 +202,20 @@ namespace SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  SmartMirrorWinUniv.MainPage
+            case 0:   //  SmartMirrorWinUniv.CalendarIconValueConverter
+                userType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_0_CalendarIconValueConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 1:   //  Object
+                xamlType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 2:   //  SmartMirrorWinUniv.MainPage
                 userType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_MainPage;
+                userType.Activator = Activate_2_MainPage;
                 userType.AddMemberName("Time");
                 userType.AddMemberName("News");
                 userType.AddMemberName("Quote");
@@ -211,47 +225,43 @@ namespace SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.Page
+            case 3:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Controls.UserControl
+            case 4:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  SmartMirrorWinUniv.Concreates.CurrentTime
+            case 5:   //  SmartMirrorWinUniv.Concreates.CurrentTime
                 userType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  Object
-                xamlType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 5:   //  SmartMirrorWinUniv.Concreates.NewsModel
+            case 6:   //  SmartMirrorWinUniv.Concreates.NewsModel
                 userType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 6:   //  SmartMirrorWinUniv.Concreates.QuoteModel
+            case 7:   //  SmartMirrorWinUniv.Concreates.QuoteModel
                 userType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  SmartMirrorWinUniv.Concreates.TrafficStatus
+            case 8:   //  SmartMirrorWinUniv.Concreates.TrafficStatus
                 userType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 8:   //  SmartMirrorWinUniv.Concreates.WeatherStatus
+            case 9:   //  SmartMirrorWinUniv.Concreates.WeatherStatus
                 userType = new global::SmartMirrorWinUniv.SmartMirrorWinUniv_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();

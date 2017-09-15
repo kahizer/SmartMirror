@@ -98,7 +98,7 @@
                                     if (header.name == "From")
                                     {
                                         var rawFrom = header.value.ToString();
-                                        mailMessage.From = rawFrom.Replace("\"", "");
+                                        mailMessage.From = this.CleanFromField(rawFrom);
                                     }
 
                                     if (header.name == "Subject")
@@ -124,6 +124,19 @@
 
                 return mailstatus;
             }
+        }
+
+        private string CleanFromField(string rawSender)
+        {
+            rawSender = rawSender.Replace("\"", "");
+            int startingIndex = rawSender.IndexOf('<');
+
+            if (startingIndex > 0)
+            {
+                return rawSender.Substring(0, startingIndex - 1);
+            }
+            
+            return rawSender;
         }
 
         #endregion

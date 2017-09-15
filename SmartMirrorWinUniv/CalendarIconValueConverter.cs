@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 namespace SmartMirrorWinUniv
 {
     using Windows.UI.Xaml.Data;
+
+    using SmartMirrorWinUniv.Concreates;
+
     public class CalendarIconValueConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var itemType = value.ToString();
-            if (itemType == "personal") return $"Resources/calendar-24.png";
+            var calendarItem = value as CalendarItem;
+            if(calendarItem != null)
+            if (calendarItem.Type == "personal") return $"Resources/calendar-24.png";
 
             return $"Resources/public-calendar-24.png";
         }

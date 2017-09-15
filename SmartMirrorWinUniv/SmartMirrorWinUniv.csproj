@@ -102,7 +102,7 @@
     <Compile Include="Concreates\CalendarStatus.cs" />
     <Compile Include="Concreates\CurrentTime.cs" />
     <Compile Include="Concreates\EmailStatus.cs" />
-    <Compile Include="Concreates\GmailServices.cs" />
+    <Compile Include="Services\GmailServices.cs" />
     <Compile Include="Concreates\NewsModel.cs" />
     <Compile Include="Concreates\QuoteModel.cs" />
     <Compile Include="Concreates\TrafficStatus.cs" />

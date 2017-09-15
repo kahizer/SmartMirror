@@ -73,9 +73,9 @@ namespace SmartMirrorWinUniv
                         this.MailSenderTextBlock03.Text = emailStatus.EmailMessages[3].From;
                         this.MailSnipTextBlock03.Text = emailStatus.EmailMessages[3].Snippet;
 
-                        this.MailSubjectTextBlock04.Text = emailStatus.EmailMessages[3].Subject;
-                        this.MailSenderTextBlock04.Text = emailStatus.EmailMessages[3].From;
-                        this.MailSnipTextBlock04.Text = emailStatus.EmailMessages[3].Snippet;
+                        this.MailSubjectTextBlock04.Text = emailStatus.EmailMessages[4].Subject;
+                        this.MailSenderTextBlock04.Text = emailStatus.EmailMessages[4].From;
+                        this.MailSnipTextBlock04.Text = emailStatus.EmailMessages[4].Snippet;
 
                     }
             );
@@ -87,36 +87,16 @@ namespace SmartMirrorWinUniv
                 CoreDispatcherPriority.Normal,
                 () =>
                     {
-                        this.CalendarSummaryTextBlock00.Text = calendarStatus.CalenderItems[0].Title;
-                        this.CalendarDueTextBlock00.Text = calendarStatus.CalenderItems[0].EasyDueDate;
-
-                        this.CalendarSummaryTextBlock01.Text = calendarStatus.CalenderItems[1].Title;
-                        this.CalendarDueTextBlock01.Text = calendarStatus.CalenderItems[1].EasyDueDate;
-
-                        this.CalendarSummaryTextBlock02.Text = calendarStatus.CalenderItems[2].Title;
-                        this.CalendarDueTextBlock02.Text = calendarStatus.CalenderItems[2].EasyDueDate;
-
-                        this.CalendarSummaryTextBlock03.Text = calendarStatus.CalenderItems[3].Title;
-                        this.CalendarDueTextBlock03.Text = calendarStatus.CalenderItems[3].EasyDueDate;
-
-                        this.CalendarSummaryTextBlock04.Text = calendarStatus.CalenderItems[4].Title;
-                        this.CalendarDueTextBlock04.Text = calendarStatus.CalenderItems[4].EasyDueDate;
-
-                        this.CalendarSummaryTextBlock05.Text = calendarStatus.CalenderItems[5].Title;
-                        this.CalendarDueTextBlock05.Text = calendarStatus.CalenderItems[5].EasyDueDate;
-
-                        this.CalendarSummaryTextBlock06.Text = calendarStatus.CalenderItems[6].Title;
-                        this.CalendarDueTextBlock06.Text = calendarStatus.CalenderItems[6].EasyDueDate;
-
-                        this.CalendarSummaryTextBlock07.Text = calendarStatus.CalenderItems[7].Title;
-                        this.CalendarDueTextBlock07.Text = calendarStatus.CalenderItems[7].EasyDueDate;
-
-                        this.CalendarSummaryTextBlock08.Text = calendarStatus.CalenderItems[8].Title;
-                        this.CalendarDueTextBlock08.Text = calendarStatus.CalenderItems[8].EasyDueDate;
-
-                        this.CalendarSummaryTextBlock09.Text = calendarStatus.CalenderItems[9].Title;
-                        this.CalendarDueTextBlock09.Text = calendarStatus.CalenderItems[9].EasyDueDate;
-
+                        this.CalendarGroup00.DataContext = calendarStatus.CalenderItems[0];
+                        this.CalendarGroup01.DataContext = calendarStatus.CalenderItems[1];
+                        this.CalendarGroup02.DataContext = calendarStatus.CalenderItems[2];
+                        this.CalendarGroup03.DataContext = calendarStatus.CalenderItems[3];
+                        this.CalendarGroup04.DataContext = calendarStatus.CalenderItems[4];
+                        this.CalendarGroup05.DataContext = calendarStatus.CalenderItems[5];
+                        this.CalendarGroup06.DataContext = calendarStatus.CalenderItems[6];
+                        this.CalendarGroup07.DataContext = calendarStatus.CalenderItems[7];
+                        this.CalendarGroup08.DataContext = calendarStatus.CalenderItems[8];
+                        this.CalendarGroup09.DataContext = calendarStatus.CalenderItems[9];
                     }
             );
         }
