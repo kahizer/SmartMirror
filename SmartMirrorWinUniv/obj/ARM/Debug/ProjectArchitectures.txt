@@ -1,0 +1,1 @@
+C:\Users\kahizer\source\repos\SmartMirrorFinal\SmartMirror\SmartMirrorWinUniv\SmartMirrorWinUniv.csproj;arm

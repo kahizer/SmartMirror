@@ -52,7 +52,8 @@
             using (var httpRequest = new Windows.Web.Http.HttpRequestMessage())
             {
                 var client = new Windows.Web.Http.HttpClient();
-                string mailListApi = $"https://www.googleapis.com/gmail/v1/users/{this.userId}/messages?q=is%3Aunread";
+                //string mailListApi = $"https://www.googleapis.com/gmail/v1/users/{this.userId}/messages?q=is%3Aunread";
+                string mailListApi = $"https://www.googleapis.com/gmail/v1/users/me/messages?q=in%3Ainbox%20is%3Aunread%20-category%3A%7BCATEGORY_PERSONAL%7D";
 
                 httpRequest.Method = Windows.Web.Http.HttpMethod.Get;
                 httpRequest.RequestUri = new Uri(mailListApi);
