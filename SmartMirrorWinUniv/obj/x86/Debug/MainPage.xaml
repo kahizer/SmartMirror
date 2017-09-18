@@ -5,7 +5,7 @@
     xmlns:local="using:SmartMirrorWinUniv"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Height="1800" Width="1200">
+    mc:Ignorable="d" Height="1600" Width="1200">
     <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">-->
         <Grid Background="Black">
         <Grid.Resources>
@@ -13,6 +13,10 @@
             <Style TargetType="TextBlock" x:Key="TextBlockStyle">
                 <Setter Property="Foreground" Value="White" />
                 <Setter Property="FontSize" Value="30" />
+            </Style>
+            <Style TargetType="TextBlock" x:Key="QuoteTextBlockStyle">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Foreground" Value="White"/>
             </Style>
             <Style TargetType="TextBlock" x:Key="NewsTextBlockStyle">
                 <Setter Property="Width" Value="298"/>
@@ -24,7 +28,7 @@
                 <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
             </Style>
             <Style TargetType="Image" x:Key="NewsIcon">
-                <Setter Property="Source" Value="Resources/news02.png"></Setter>
+                <Setter Property="Source" Value="Resources/news02.png"/>
                 <Setter Property="Margin" Value="0,3,0,0"/>
                 <Setter Property="Width" Value="28"/>
                 <Setter Property="VerticalAlignment" Value="Top"/>
@@ -85,7 +89,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+        <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="3">
             <StackPanel Orientation="Vertical">
                 <!--Datetime informartion-->
                 <TextBlock x:ConnectionId='45'  Name="DayInfoTextBlock" Style="{StaticResource TextBlockStyle}" FontSize="28"/>
@@ -103,7 +107,7 @@
                 </StackPanel>
 
                 <!--Mail informartion-->
-                <StackPanel Orientation="Horizontal" Margin="0,45,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
                     <Image Source="Resources/mail-24.png" Width="20"/>
                     <TextBlock x:ConnectionId='70' Name="MailSenderTextBlock00" Text="Apple new trending issues" Style="{StaticResource MailSenderTextBlockStyle}"/>
                     <TextBlock x:ConnectionId='71' Name="MailSubjectTextBlock00" Text="Big aannouncements from our september event" Style="{StaticResource MailSubjectTextBlock}"/>
@@ -139,7 +143,7 @@
                 <TextBlock x:ConnectionId='51' Name="MailSnipTextBlock04" Text="A monumental day for iPhone, Apple Watch, and Apple TV." Style="{StaticResource MailSnipTextBlockStyle}"/>
 
                 <!--Calendar Information-->
-                <StackPanel x:ConnectionId='52' Orientation="Horizontal" Margin="0,45,0,0" Name="CalendarGroup00">
+                <StackPanel x:ConnectionId='52' Orientation="Horizontal" Margin="0,70,0,0" Name="CalendarGroup00">
                     <Image Source="{Binding Converter={StaticResource CalendarIconValueConverter}}" Width="20"/>
                     <TextBlock Text="{Binding Title}"  Style="{StaticResource CalendarSummaryTextBlockStyle}"/>
                     <TextBlock Text="{Binding EasyDueDate}" Style="{StaticResource CalendarDueTextBlockStyle}"/>
@@ -294,7 +298,7 @@
 
                 <!-- News -->
                     
-                <TextBlock Margin="0,175,15,0" Style="{StaticResource NewsTextBlockStyle}" Text="                           Trending News" 
+                <TextBlock Margin="0,125,15,0" Style="{StaticResource NewsTextBlockStyle}"  Text="                           Trending News" 
                            TextDecorations="Underline" HorizontalAlignment="Right" FontWeight="SemiBold"/>
 
                 <StackPanel Orientation="Horizontal">
@@ -348,11 +352,9 @@
 
             </StackPanel>
             </Grid>
-            
-
-        <StackPanel  Grid.Column="1" Grid.Row="2" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <TextBlock x:ConnectionId='1'  Name="QuoteTextBlock" Style="{StaticResource TextBlockStyle}" Text="{Binding Quote}" TextWrapping="Wrap" HorizontalAlignment="Center" FontStyle="Italic"/>
-            <TextBlock x:ConnectionId='2'  Name="AuthorTextBlock" Style="{StaticResource TextBlockStyle}" Text="{Binding Author}" HorizontalAlignment="Center" FontStyle="Italic"/>
+                    <StackPanel  Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Margin="20,10" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBlock x:ConnectionId='1'  Name="QuoteTextBlock" Style="{StaticResource QuoteTextBlockStyle}" Text="{Binding Quote}" TextWrapping="Wrap" HorizontalAlignment="Center" FontStyle="Italic"/>
+            <TextBlock x:ConnectionId='2'  Name="AuthorTextBlock" Style="{StaticResource QuoteTextBlockStyle}" Text="{Binding Author}" HorizontalAlignment="Center" FontStyle="Italic"/>
         </StackPanel>
         
 

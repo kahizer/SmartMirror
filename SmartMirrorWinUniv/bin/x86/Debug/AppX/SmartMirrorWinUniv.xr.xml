@@ -31,6 +31,8 @@
       <RootMethod Name="SetColumn" />
       <RootMethod Name="GetRowSpan" />
       <RootMethod Name="SetRowSpan" />
+      <RootMethod Name="GetColumnSpan" />
+      <RootMethod Name="SetColumnSpan" />
     </RootType>
     <RootType FullName="SmartMirrorWinUniv.CalendarIconValueConverter" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
