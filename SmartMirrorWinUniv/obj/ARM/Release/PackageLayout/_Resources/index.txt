@@ -1,4 +1,0 @@
-NodaTime, Version=2.0.3.0, Culture=neutral, PublicKeyToken=4226afe0d9b296d1
-  NodaTime.Properties.Messages.resources
-  NodaTime.Properties.PatternResources.resources
-  NodaTime.TimeZones.Tzdb.nzd
