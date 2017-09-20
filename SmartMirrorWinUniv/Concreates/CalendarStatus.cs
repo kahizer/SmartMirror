@@ -74,8 +74,10 @@ namespace SmartMirrorWinUniv.Concreates
 
         private string GetEasyDueDate(DateTime dueDate)
         {
-            int days = dueDate.Subtract(DateTime.Now).Days;
+            var date = dueDate.Date;
+            var today = DateTime.Today.Date;
 
+            int days = date.Subtract(today).Days;
             if (days > 360)
             {
                 var years = days / 360;
@@ -85,7 +87,7 @@ namespace SmartMirrorWinUniv.Concreates
             {
                 var months = days / 30;
 
-                return months == 1 ? $"in {months} month" : $"in {months} months";
+                return months == 1 ? $"next month" : $"in {months} months";
             }
             else if(days > 1)
             {

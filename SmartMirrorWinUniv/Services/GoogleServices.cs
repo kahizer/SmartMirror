@@ -27,7 +27,7 @@ namespace SmartMirrorWinUniv.Services
         private bool gotAccessToken = false;
 
         private string accessToken = string.Empty;
-
+        
         private Windows.Web.Http.HttpClient client;
 
         private string holydaysCalendarId = "en.usa%23holiday%40group.v.calendar.google.com";
@@ -42,6 +42,23 @@ namespace SmartMirrorWinUniv.Services
 
         public GoogleServices()
         {
+            this.GMailServices = new GmailServices(this.accessToken);
+            this.GMailServices.FailedToAuthenticate += this.GoogleServicesOnFailedToAuthenticate;
+            this.GMailServices.LatestEmailsEvent += (sender, status) => { this.LatestEmailsEvent?.Invoke(this, status); };
+
+
+            this.CalendarServices = new CalendarServices(this.accessToken);
+            this.CalendarServices.LatestCalendarEvent += (sender, status) => { this.LatestCalendarEvent?.Invoke(this, status); };
+            this.CalendarServices.FailedToAuthenticate += this.GoogleServicesOnFailedToAuthenticate;
+
+            //this.Authenticate();
+        }
+
+        private void GoogleServicesOnFailedToAuthenticate(object o, EventArgs eventArgs)
+        {
+            this.GMailServices = null;
+            this.CalendarServices = null;
+
             this.Authenticate();
         }
 

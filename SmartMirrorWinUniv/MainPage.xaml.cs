@@ -1,27 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using System.ServiceModel;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+﻿// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace SmartMirrorWinUniv
 {
     using Windows.UI.Core;
-    using Windows.UI.Xaml.Media.Imaging;
-
-    using SmartMirrorWinUniv.Services;
+    using Windows.UI.Xaml.Controls;
     using SmartMirrorWinUniv.Concreates;
 
     /// <summary>
@@ -57,26 +39,36 @@ namespace SmartMirrorWinUniv
                 CoreDispatcherPriority.Normal,
                 () =>
                     {
-                        this.MailSubjectTextBlock00.Text = emailStatus.EmailMessages[0].Subject;
-                        this.MailSenderTextBlock00.Text = emailStatus.EmailMessages[0].From;
-                        this.MailSnipTextBlock00.Text = emailStatus.EmailMessages[0].Snippet;
-
-                        this.MailSubjectTextBlock01.Text = emailStatus.EmailMessages[1].Subject;
-                        this.MailSenderTextBlock01.Text = emailStatus.EmailMessages[1].From;
-                        this.MailSnipTextBlock01.Text = emailStatus.EmailMessages[1].Snippet;
-
-                        this.MailSubjectTextBlock02.Text = emailStatus.EmailMessages[2].Subject;
-                        this.MailSenderTextBlock02.Text = emailStatus.EmailMessages[2].From;
-                        this.MailSnipTextBlock02.Text = emailStatus.EmailMessages[2].Snippet;
-
-                        this.MailSubjectTextBlock03.Text = emailStatus.EmailMessages[3].Subject;
-                        this.MailSenderTextBlock03.Text = emailStatus.EmailMessages[3].From;
-                        this.MailSnipTextBlock03.Text = emailStatus.EmailMessages[3].Snippet;
-
-                        this.MailSubjectTextBlock04.Text = emailStatus.EmailMessages[4].Subject;
-                        this.MailSenderTextBlock04.Text = emailStatus.EmailMessages[4].From;
-                        this.MailSnipTextBlock04.Text = emailStatus.EmailMessages[4].Snippet;
-
+                        if (emailStatus.EmailMessages.Count > 0)
+                        {
+                            this.MailSubjectTextBlock00.Text = emailStatus.EmailMessages[0].Subject;
+                            this.MailSenderTextBlock00.Text = emailStatus.EmailMessages[0].From;
+                            this.MailSnipTextBlock00.Text = emailStatus.EmailMessages[0].Snippet;
+                        }
+                        if (emailStatus.EmailMessages.Count > 1)
+                        {
+                            this.MailSubjectTextBlock01.Text = emailStatus.EmailMessages[1].Subject;
+                            this.MailSenderTextBlock01.Text = emailStatus.EmailMessages[1].From;
+                            this.MailSnipTextBlock01.Text = emailStatus.EmailMessages[1].Snippet;
+                        }
+                        if (emailStatus.EmailMessages.Count > 2)
+                        {
+                            this.MailSubjectTextBlock02.Text = emailStatus.EmailMessages[2].Subject;
+                            this.MailSenderTextBlock02.Text = emailStatus.EmailMessages[2].From;
+                            this.MailSnipTextBlock02.Text = emailStatus.EmailMessages[2].Snippet;
+                        }
+                        if (emailStatus.EmailMessages.Count > 3)
+                        {
+                            this.MailSubjectTextBlock03.Text = emailStatus.EmailMessages[3].Subject;
+                            this.MailSenderTextBlock03.Text = emailStatus.EmailMessages[3].From;
+                            this.MailSnipTextBlock03.Text = emailStatus.EmailMessages[3].Snippet;
+                        }
+                        if (emailStatus.EmailMessages.Count > 4)
+                        {
+                            this.MailSubjectTextBlock04.Text = emailStatus.EmailMessages[4].Subject;
+                            this.MailSenderTextBlock04.Text = emailStatus.EmailMessages[4].From;
+                            this.MailSnipTextBlock04.Text = emailStatus.EmailMessages[4].Snippet;
+                        }
                     }
             );
         }
@@ -87,16 +79,35 @@ namespace SmartMirrorWinUniv
                 CoreDispatcherPriority.Normal,
                 () =>
                     {
-                        this.CalendarGroup00.DataContext = calendarStatus.CalenderItems[0];
-                        this.CalendarGroup01.DataContext = calendarStatus.CalenderItems[1];
-                        this.CalendarGroup02.DataContext = calendarStatus.CalenderItems[2];
-                        this.CalendarGroup03.DataContext = calendarStatus.CalenderItems[3];
-                        this.CalendarGroup04.DataContext = calendarStatus.CalenderItems[4];
-                        this.CalendarGroup05.DataContext = calendarStatus.CalenderItems[5];
-                        this.CalendarGroup06.DataContext = calendarStatus.CalenderItems[6];
-                        this.CalendarGroup07.DataContext = calendarStatus.CalenderItems[7];
-                        this.CalendarGroup08.DataContext = calendarStatus.CalenderItems[8];
-                        this.CalendarGroup09.DataContext = calendarStatus.CalenderItems[9];
+                        if(calendarStatus.CalenderItems.Count > 0)
+                            this.CalendarGroup00.DataContext = calendarStatus.CalenderItems[0];
+
+                        if (calendarStatus.CalenderItems.Count > 1)
+                            this.CalendarGroup01.DataContext = calendarStatus.CalenderItems[1];
+
+                        if (calendarStatus.CalenderItems.Count > 2)
+                            this.CalendarGroup02.DataContext = calendarStatus.CalenderItems[2];
+
+                        if (calendarStatus.CalenderItems.Count > 3)
+                            this.CalendarGroup03.DataContext = calendarStatus.CalenderItems[3];
+
+                        if (calendarStatus.CalenderItems.Count > 4)
+                            this.CalendarGroup04.DataContext = calendarStatus.CalenderItems[4];
+
+                        if (calendarStatus.CalenderItems.Count > 5)
+                            this.CalendarGroup05.DataContext = calendarStatus.CalenderItems[5];
+
+                        if (calendarStatus.CalenderItems.Count > 6)
+                            this.CalendarGroup06.DataContext = calendarStatus.CalenderItems[6];
+
+                        if (calendarStatus.CalenderItems.Count > 7)
+                            this.CalendarGroup07.DataContext = calendarStatus.CalenderItems[7];
+
+                        if (calendarStatus.CalenderItems.Count > 8)
+                            this.CalendarGroup08.DataContext = calendarStatus.CalenderItems[8];
+
+                        if (calendarStatus.CalenderItems.Count > 9)
+                            this.CalendarGroup09.DataContext = calendarStatus.CalenderItems[9];
                     }
             );
         }
@@ -144,16 +155,6 @@ namespace SmartMirrorWinUniv
                     }
             );
         }
-
-        #endregion
-
-        #region Public Properties
-
-        public CurrentTime Time { get; set; }
-        public NewsModel News { get; set; }
-        public QuoteModel Quote { get; set; }
-        public TrafficStatus Traffic { get; set; }
-        public WeatherStatus Weather { get; set; }
 
         #endregion
 

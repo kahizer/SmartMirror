@@ -35,95 +35,133 @@
 
         public event EventHandler<EmailStatus> LatestEmailsEvent;
 
+        public event EventHandler FailedToAuthenticate;
+
         #endregion
 
         #region Private Methods
 
         private void GetLatesEmail(object state)
         {
-            var mails = this.GetEmails().Result;
-            this.LatestEmailsEvent?.Invoke(this, mails);
-            this.timer.Change(this.elapseTime, Timeout.Infinite);
+            try
+            {
+                var mails = this.GetEmails().Result;
+                this.LatestEmailsEvent?.Invoke(this, mails);
+                this.timer.Change(this.elapseTime, Timeout.Infinite);
+            }
+            catch (Exception ex)
+            {
+                this.timer.Dispose();
+                this.timer = null;
+                this.FailedToAuthenticate?.Invoke(this, null);
+            }
         }
 
         private async Task<EmailStatus> GetEmails()
         {
-            var mailstatus = new EmailStatus();
-            using (var httpRequest = new Windows.Web.Http.HttpRequestMessage())
+            try
             {
-                var client = new Windows.Web.Http.HttpClient();
-                //string mailListApi = $"https://www.googleapis.com/gmail/v1/users/{this.userId}/messages?q=is%3Aunread";
-                string mailListApi = $"https://www.googleapis.com/gmail/v1/users/me/messages?q=in%3Ainbox%20is%3Aunread%20-category%3A%7BCATEGORY_PERSONAL%7D";
-
-                httpRequest.Method = Windows.Web.Http.HttpMethod.Get;
-                httpRequest.RequestUri = new Uri(mailListApi);
-                httpRequest.Headers.Authorization = new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Bearer", this.accessToken);
-
-                var response = await client.SendRequestAsync(httpRequest);
-                if (response.IsSuccessStatusCode)
+                var mailstatus = new EmailStatus();
+                using (var httpRequest = new Windows.Web.Http.HttpRequestMessage())
                 {
-                    var jsonData = await response.Content.ReadAsStringAsync();
-                    dynamic jsonObject = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonData);
+                    var client = new Windows.Web.Http.HttpClient();
+                    //string mailListApi = $"https://www.googleapis.com/gmail/v1/users/{this.userId}/messages?q=is%3Aunread";
+                    string mailListApi = $"https://www.googleapis.com/gmail/v1/users/me/messages?q=in%3Ainbox%20is%3Aunread%20-category%3A%7BCATEGORY_PERSONAL%7D";
 
-                    var emailIds = jsonObject.messages;
-                    var counter = 0;
-                    foreach (dynamic emailId in emailIds)
+                    httpRequest.Method = Windows.Web.Http.HttpMethod.Get;
+                    httpRequest.RequestUri = new Uri(mailListApi);
+                    httpRequest.Headers.Authorization = new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Bearer", this.accessToken);
+
+                    var response = await client.SendRequestAsync(httpRequest);
+                    if (response.IsSuccessStatusCode)
                     {
-                        if(counter > 10)
-                            break;
+                        var jsonData = await response.Content.ReadAsStringAsync();
+                        dynamic jsonObject = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonData);
 
-                        counter++;
-                        string id = emailId.id;
-                        using (var innerHttpRequest = new Windows.Web.Http.HttpRequestMessage())
+                        var emailIds = jsonObject.messages;
+                        var counter = 0;
+                        foreach (dynamic emailId in emailIds)
                         {
-                            var innerClient = new Windows.Web.Http.HttpClient();
-                            string mailApi = $"https://www.googleapis.com/gmail/v1/users/{this.userId}/messages/{id}";
+                            if(counter > 10)
+                                break;
 
-                            innerHttpRequest.Method = Windows.Web.Http.HttpMethod.Get;
-                            innerHttpRequest.RequestUri = new Uri(mailApi);
-                            innerHttpRequest.Headers.Authorization =
-                                new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Bearer", this.accessToken);
-
-                            var innerResponse = await innerClient.SendRequestAsync(innerHttpRequest);
-                            if (innerResponse.IsSuccessStatusCode)
+                            counter++;
+                            string id = emailId.id;
+                            using (var innerHttpRequest = new Windows.Web.Http.HttpRequestMessage())
                             {
-                                dynamic mailObject = Newtonsoft.Json.JsonConvert.DeserializeObject(innerResponse.Content.ToString());
-                                dynamic payload = mailObject.payload;
-                                dynamic headers = payload.headers;
+                                var innerClient = new Windows.Web.Http.HttpClient();
+                                //string mailApi = $"https://www.googleapis.com/gmail/v1/users/{this.userId}/messages/{id}";
+                                string mailApi = $"https://www.googleapis.com/gmail/v1/users/me/messages/{id}";
 
-                                var mailMessage = new EmailMessage();
-                                mailMessage.Snippet = WebUtility.HtmlDecode(mailObject.snippet.Value.ToString());
+                                innerHttpRequest.Method = Windows.Web.Http.HttpMethod.Get;
+                                innerHttpRequest.RequestUri = new Uri(mailApi);
+                                innerHttpRequest.Headers.Authorization =
+                                    new Windows.Web.Http.Headers.HttpCredentialsHeaderValue("Bearer", this.accessToken);
 
-                                foreach (dynamic header in headers)
+                                var innerResponse = await innerClient.SendRequestAsync(innerHttpRequest);
+                                if (innerResponse.IsSuccessStatusCode)
                                 {
-                                    if (header.name == "From")
-                                    {
-                                        var rawFrom = header.value.ToString();
-                                        mailMessage.From = this.CleanFromField(rawFrom);
-                                    }
+                                    dynamic mailObject = Newtonsoft.Json.JsonConvert.DeserializeObject(innerResponse.Content.ToString());
+                                    dynamic payload = mailObject.payload;
+                                    dynamic headers = payload.headers;
 
-                                    if (header.name == "Subject")
-                                    {
-                                        mailMessage.Subject = header.value;
-                                    }
+                                    var mailMessage = new EmailMessage();
+                                    mailMessage.Snippet = WebUtility.HtmlDecode(mailObject.snippet.Value.ToString());
 
-                                    if (header.name == "Date")
+                                    foreach (dynamic header in headers)
                                     {
-                                        try
+                                        if (header.name == "From")
                                         {
-                                            mailMessage.TimeStamp = DateTime.Parse(header.value.ToString());
+                                            var rawFrom = header.value.ToString();
+                                            mailMessage.From = this.CleanFromField(rawFrom);
                                         }
-                                        catch (Exception){ }
-                                    }
-                                }
 
-                                mailstatus.EmailMessages.Add(mailMessage);
+                                        if (header.name == "Subject")
+                                        {
+                                            mailMessage.Subject = header.value;
+                                        }
+
+                                        if (header.name == "Date")
+                                        {
+                                            try
+                                            {
+                                                mailMessage.TimeStamp = DateTime.Parse(header.value.ToString());
+                                            }
+                                            catch (Exception){ }
+                                        }
+                                    }
+
+                                    mailstatus.EmailMessages.Add(mailMessage);
+                                }
                             }
                         }
                     }
+                    else
+                    {
+                        var errorRaw = await response.Content.ReadAsStringAsync();
+                        dynamic jsonObject = Newtonsoft.Json.JsonConvert.DeserializeObject(errorRaw);
+
+                        dynamic error = jsonObject.error;
+                        dynamic errors = error.errors;
+                        dynamic firstItem = errors[0];
+                        dynamic reasonObject = firstItem.reason;
+                        string reason = reasonObject.Value;
+
+                        if (reason == "authError")
+                        {
+                            throw new Exception();
+                        }
+                    }
+
+                    return mailstatus;
                 }
 
-                return mailstatus;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                this.FailedToAuthenticate?.Invoke(this, null);
+                throw;
             }
         }
 

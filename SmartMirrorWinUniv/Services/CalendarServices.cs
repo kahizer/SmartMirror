@@ -39,21 +39,32 @@
 
         public event EventHandler<CalendarStatus> LatestCalendarEvent;
 
+        public event EventHandler FailedToAuthenticate;
+
         #endregion
 
         #region Private Methods
 
         private void GetEvents(object state)
         {
-            var calendar = this.GetRawEvents().Result;
-            this.LatestCalendarEvent?.Invoke(this, calendar);
-            this.timer.Change(this.elapseTime, Timeout.Infinite);
+            try
+            {
+                var calendar = this.GetRawEvents().Result;
+                this.LatestCalendarEvent?.Invoke(this, calendar);
+                this.timer.Change(this.elapseTime, Timeout.Infinite);
+            }
+            catch (Exception)
+            {
+                this.timer.Dispose();
+                this.timer = null;
+                this.FailedToAuthenticate?.Invoke(this, null);
+            }
         }
 
         private async Task<CalendarStatus> GetRawEvents()
         {
             //Call Google Calendar API
-            var yesterdayDateTime = DateTime.Now.AddDays(-1);
+            var yesterdayDateTime = DateTime.Now.Date;//DateTime.Now.AddDays(-1);
             var minDateString = yesterdayDateTime.ToString("O");
 
             var currentCalendar = new CalendarStatus();
@@ -72,6 +83,22 @@
                     var listString = await response.Content.ReadAsStringAsync();
                     currentCalendar.AddRawCalendarItems(listString, "personal");
                 }
+                else
+                {
+                    var errorRaw = await response.Content.ReadAsStringAsync();
+                    dynamic jsonObject = Newtonsoft.Json.JsonConvert.DeserializeObject(errorRaw);
+
+                    dynamic error = jsonObject.error;
+                    dynamic errors = error.errors;
+                    dynamic firstItem = errors[0];
+                    dynamic reasonObject = firstItem.reason;
+                    string reason = reasonObject.Value;
+
+                    if (reason == "authError")
+                    {
+                        throw new Exception();
+                    }
+                }
             }
 
             using (var httpRequest = new Windows.Web.Http.HttpRequestMessage())
@@ -87,11 +114,27 @@
 
                 var holidayresponse = await client.SendRequestAsync(httpRequest);
 
-                
                 if (holidayresponse.IsSuccessStatusCode)
                 {
                     var listString = await holidayresponse.Content.ReadAsStringAsync();
                     currentCalendar.AddRawCalendarItems(listString, "public");
+                }
+                else
+                {
+                    var errorRaw = await holidayresponse.Content.ReadAsStringAsync();
+                    dynamic jsonObject = Newtonsoft.Json.JsonConvert.DeserializeObject(errorRaw);
+
+                    dynamic error = jsonObject.error;
+                    dynamic errors = error.errors;
+                    dynamic firstItem = errors[0];
+                    dynamic reasonObject = firstItem.reason;
+                    string reason = reasonObject.Value;
+
+                    if (reason == "authError")
+                    {
+                        throw new Exception();
+                    }
+
                 }
             }
 

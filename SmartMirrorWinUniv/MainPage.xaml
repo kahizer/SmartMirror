@@ -315,38 +315,38 @@
 
                 <StackPanel Orientation="Horizontal">
                     <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock Margin="0,8,0,0" Name="NewsTextBlock03" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock Name="NewsTextBlock03" Style="{StaticResource NewsTextBlockStyle}"/>
                     </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock Margin="0,8,0,0" Name="NewsTextBlock04" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock Name="NewsTextBlock04" Style="{StaticResource NewsTextBlockStyle}"/>
                 </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock Margin="0,8,0,0" Name="NewsTextBlock05" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock Name="NewsTextBlock05" Style="{StaticResource NewsTextBlockStyle}"/>
                     </StackPanel>
 
 
                 <StackPanel Orientation="Horizontal">
                     <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock Margin="0,8,0,0" Name="NewsTextBlock06" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock Name="NewsTextBlock06" Style="{StaticResource NewsTextBlockStyle}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock Margin="0,8,0,0" Name="NewsTextBlock07" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock Name="NewsTextBlock07" Style="{StaticResource NewsTextBlockStyle}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock Margin="0,8,0,0" Name="NewsTextBlock08" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock Name="NewsTextBlock08" Style="{StaticResource NewsTextBlockStyle}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock Margin="0,8,0,0" Name="NewsTextBlock09" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock Name="NewsTextBlock09" Style="{StaticResource NewsTextBlockStyle}"/>
                 </StackPanel>
 
 

@@ -315,38 +315,38 @@
 
                 <StackPanel Orientation="Horizontal">
                     <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock x:ConnectionId='10' Margin="0,8,0,0" Name="NewsTextBlock03" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='10' Name="NewsTextBlock03" Style="{StaticResource NewsTextBlockStyle}"/>
                     </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock x:ConnectionId='9' Margin="0,8,0,0" Name="NewsTextBlock04" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='9' Name="NewsTextBlock04" Style="{StaticResource NewsTextBlockStyle}"/>
                 </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock x:ConnectionId='8' Margin="0,8,0,0" Name="NewsTextBlock05" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='8' Name="NewsTextBlock05" Style="{StaticResource NewsTextBlockStyle}"/>
                     </StackPanel>
 
 
                 <StackPanel Orientation="Horizontal">
                     <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock x:ConnectionId='7' Margin="0,8,0,0" Name="NewsTextBlock06" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='7' Name="NewsTextBlock06" Style="{StaticResource NewsTextBlockStyle}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock x:ConnectionId='6' Margin="0,8,0,0" Name="NewsTextBlock07" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='6' Name="NewsTextBlock07" Style="{StaticResource NewsTextBlockStyle}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock x:ConnectionId='5' Margin="0,8,0,0" Name="NewsTextBlock08" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='5' Name="NewsTextBlock08" Style="{StaticResource NewsTextBlockStyle}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <Image Style="{StaticResource NewsIcon}"/>
-                    <TextBlock x:ConnectionId='4' Margin="0,8,0,0" Name="NewsTextBlock09" Style="{StaticResource NewsTextBlockStyle}"/>
+                    <TextBlock x:ConnectionId='4' Name="NewsTextBlock09" Style="{StaticResource NewsTextBlockStyle}"/>
                 </StackPanel>
 
 
